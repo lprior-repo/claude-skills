@@ -1,613 +1,613 @@
 !
 .ai-instructions.md
-╧иеби3ТI
+Е┬Хли3ТI
 ;.bead-progress/oya-20260216063508-7npuxieq/contract-spec.md
-╧иеби3иWP
-A.bead-progress/oya-20260216063508-7npuxieq/martin-fowler-tests.md╧иеби3║│I
+Е┬Хли3иWP
+A.bead-progress/oya-20260216063508-7npuxieq/martin-fowler-tests.mdЕ┬Хли3║│I
 ;.bead-progress/oya-20260216063508-8lhonfgf/contract-spec.md
-╧иеби3╩EO
+Е┬Хли3╩EO
 A.bead-progress/oya-20260216063508-8lhonfgf/martin-fowler-tests.md
-╧иеби3╢u9
+Е┬Хли3╢u9
 +.bead-progress/src-15v/RED_GATE_VERIFIED.md
-╧иеби3┤,9
+Е┬Хли3┤,9
 +.bead-progress/src-15v/TEST_AGENT_REPORT.md
-╧иеби3─65
+Е┬Хли3─65
 '.bead-progress/src-15v/contract-spec.md
-╧иеби3║F
-.beads/.gitignore	╧иеби3W&
-.beads/BEAD_TEMPLATE.md╧иеби3ць
-.beads/beads.db╨иеби3──ZY
-J.beads/checkpoint_backups/chk-19c6665b4b2-implement-bdd-agent-state.tar.gz╨иеби3ж═	X
-I.beads/checkpoint_backups/chk-19c6665b4b2-proper-ddd-encapsulation.tar.gz╩иеби3с═	Q
-B.beads/checkpoint_backups/chk-19c6665b4b2-refactor-ddd-core.tar.gz╩иеби3Ю═	M
->.beads/checkpoint_backups/chk-19c6665b4b2-tdd15-src-3j7.tar.gz╩иеби3ь╧
+Е┬Хли3║F
+.beads/.gitignore	Ф┬Хли3W&
+.beads/BEAD_TEMPLATE.mdФ┬Хли3ць
+.beads/beads.dbФ┬Хли3──ZY
+J.beads/checkpoint_backups/chk-19c6665b4b2-implement-bdd-agent-state.tar.gzГ┬Хли3ж═	X
+I.beads/checkpoint_backups/chk-19c6665b4b2-proper-ddd-encapsulation.tar.gzГ┬Хли3с═	Q
+B.beads/checkpoint_backups/chk-19c6665b4b2-refactor-ddd-core.tar.gzГ┬Хли3Ю═	M
+>.beads/checkpoint_backups/chk-19c6665b4b2-tdd15-src-3j7.tar.gzХ┬Хли3ь╧
 P
-A.beads/checkpoint_backups/chk-19c6665b4b2-wire-agent-state.tar.gz╩иеби3ш═	
-.beads/config.yaml	╩иеби3\!
+A.beads/checkpoint_backups/chk-19c6665b4b2-wire-agent-state.tar.gzХ┬Хли3ш═	
+.beads/config.yaml	Х┬Хли3\!
 .beads/issues.jsonl
-╩иеби3жA!
-.beads/metadata.json	╩иеби3>2
+Х┬Хли3жA!
+.beads/metadata.json	Х┬Хли3>2
 $.beads/prompts/src-2nw-fix-prompt.md
-╩иеби3╜8!
+Х┬Хли3╜8!
 .cargo/mutants.toml
-╩иеби3А7
+И┬Хли3А7
 ).claude/ARCHITECT_AGENT_SETUP_COMPLETE.md
-╩иеби3пP
-.clippy.toml	╩иеби3?
+И┬Хли3пP
+.clippy.toml	И┬Хли3?
 .codannaignore
-╩иеби3О
-.fastembed_cache╩иеби3
+И┬Хли3О
+.fastembed_cacheИ┬Хли3
 .gitallowed
-╩иеби3┴
+И┬Хли3┴
 
 .gitignore
-╩иеби3┼
-	.jjignore	╩иеби3
-.jjignore.lock╩иеби3!
+И┬Хли3┼
+	.jjignore	И┬Хли3
+.jjignore.lockИ┬Хли3!
 .moon/tasks/all.yml
-╪иеби3Яh"
+И┬Хли3Яh"
 .moon/toolchains.yml
-╪иеби3≤!
+И┬Хли3≤!
 .moon/workspace.yml
-╪иеби3ч4
+И┬Хли3ч4
 &.moon-zjj-reference/cache/CACHEDIR.TAG
-╪иеби3⌠s
-f.moon-zjj-reference/cache/hashes/37c40b367b23f0e018f2b52e8ae111e4753d195bcfffc6ee7a0a80d56aa22c17.json	╪иеби3,s
-f.moon-zjj-reference/cache/hashes/9f19d8f788ab98f64e3e377b1a4280dfda26305ccd091cc128c91a2064c41729.json	╪иеби3-6
+И┬Хли3⌠s
+f.moon-zjj-reference/cache/hashes/37c40b367b23f0e018f2b52e8ae111e4753d195bcfffc6ee7a0a80d56aa22c17.json	И┬Хли3,s
+f.moon-zjj-reference/cache/hashes/9f19d8f788ab98f64e3e377b1a4280dfda26305ccd091cc128c91a2064c41729.json	И┬Хли3-6
 (.moon-zjj-reference/cache/runReport.json
-╪иеби3├=
-..moon-zjj-reference/cache/schemas/project.json╪иеби3м╥;
-,.moon-zjj-reference/cache/schemas/tasks.json╪иеби3╡┐I
+И┬Хли3├=
+..moon-zjj-reference/cache/schemas/project.jsonЙ┬Хли3м╥;
+,.moon-zjj-reference/cache/schemas/tasks.jsonЙ┬Хли3╡┐I
 ;.moon-zjj-reference/cache/schemas/template-frontmatter.json
-╪иеби3▓=
+Й┬Хли3▓=
 /.moon-zjj-reference/cache/schemas/template.json
-╪иеби3вw?
-0.moon-zjj-reference/cache/schemas/toolchain.json╪иеби3╢Щ?
-0.moon-zjj-reference/cache/schemas/workspace.json╪иеби3К┌C
-6.moon-zjj-reference/cache/states/moonVersionCheck.json	╪иеби3VA
-2.moon-zjj-reference/cache/states/zjj/snapshot.json╪иеби3ыЕJ
-=.moon-zjj-reference/cache/states/zjj-core/clippy/lastRun.json	╪иеби3QJ
-;.moon-zjj-reference/cache/states/zjj-core/clippy/stderr.log╪иеби3┴⌡F
-;.moon-zjj-reference/cache/states/zjj-core/clippy/stdout.log╪иеби3G
-:.moon-zjj-reference/cache/states/zjj-core/fmt/lastRun.json	╫иеби3LC
-8.moon-zjj-reference/cache/states/zjj-core/fmt/stderr.log╫иеби3C
-8.moon-zjj-reference/cache/states/zjj-core/fmt/stdout.log╫иеби3K
->.moon-zjj-reference/cache/states/zjj-core/fmt-fix/lastRun.json	╫иеби3PG
-<.moon-zjj-reference/cache/states/zjj-core/fmt-fix/stderr.log╫иеби3G
-<.moon-zjj-reference/cache/states/zjj-core/fmt-fix/stdout.log╫иеби3F
-7.moon-zjj-reference/cache/states/zjj-core/snapshot.json╫иеби3аХH
-;.moon-zjj-reference/cache/states/zjj-core/test/lastRun.json	╫иеби3M+
+Й┬Хли3вw?
+0.moon-zjj-reference/cache/schemas/toolchain.jsonЙ┬Хли3╢Щ?
+0.moon-zjj-reference/cache/schemas/workspace.jsonЙ┬Хли3К┌C
+6.moon-zjj-reference/cache/states/moonVersionCheck.json	Й┬Хли3VA
+2.moon-zjj-reference/cache/states/zjj/snapshot.jsonЙ┬Хли3ыЕJ
+=.moon-zjj-reference/cache/states/zjj-core/clippy/lastRun.json	Й┬Хли3QJ
+;.moon-zjj-reference/cache/states/zjj-core/clippy/stderr.logЙ┬Хли3┴⌡F
+;.moon-zjj-reference/cache/states/zjj-core/clippy/stdout.logЙ┬Хли3G
+:.moon-zjj-reference/cache/states/zjj-core/fmt/lastRun.json	Й┬Хли3LC
+8.moon-zjj-reference/cache/states/zjj-core/fmt/stderr.logЙ┬Хли3C
+8.moon-zjj-reference/cache/states/zjj-core/fmt/stdout.logЙ┬Хли3K
+>.moon-zjj-reference/cache/states/zjj-core/fmt-fix/lastRun.json	Й┬Хли3PG
+<.moon-zjj-reference/cache/states/zjj-core/fmt-fix/stderr.logЙ┬Хли3G
+<.moon-zjj-reference/cache/states/zjj-core/fmt-fix/stdout.logК┬Хли3F
+7.moon-zjj-reference/cache/states/zjj-core/snapshot.jsonК┬Хли3аХH
+;.moon-zjj-reference/cache/states/zjj-core/test/lastRun.json	К┬Хли3M+
 .moon-zjj-reference/tasks.yml
-╫иеби3Ш/
+К┬Хли3Ш/
 !.moon-zjj-reference/toolchain.yml
-╫иеби3м/
+К┬Хли3м/
 !.moon-zjj-reference/workspace.yml
-╫иеби3Г%
+К┬Хли3Г%
 .opencode/opencode.json
-╫иеби3ъ'
-.oya/bridge/events.jsonl╫иеби3┘ч4
-).oya/runs/e2e-20260225-174845-src-14a.log╫иеби34
-).oya/runs/e2e-20260225-175019-src-1wo.log╫иеби3,
-!.oya/runs/e2e-src-1wo-status.json╫иеби3
+К┬Хли3ъ'
+.oya/bridge/events.jsonlК┬Хли3┘ч4
+).oya/runs/e2e-20260225-174845-src-14a.logК┬Хли34
+).oya/runs/e2e-20260225-175019-src-1wo.logК┬Хли3,
+!.oya/runs/e2e-src-1wo-status.jsonК┬Хли3
 .zjj/config.toml
-╫иеби3Ш
+К┬Хли3Ш
 .zjj/undo.log
-╫иеби3Ю+%
-.zjj/workspace-create.lock╫иеби3&
-.zjj/workspaces/src-ew8╫иеби3'
+К┬Хли3Ю+%
+.zjj/workspace-create.lockК┬Хли3&
+.zjj/workspaces/src-ew8Л┬Хли3'
 	AGENTS.md
-╫иеби3дA
+Л┬Хли3дA
 	CLAUDE.md
-╫иеби3и)
+Л┬Хли3и)
 
 Cargo.toml
-╫иеби3Ь
+Л┬Хли3Ь
 
 WHY_OYA.md
-╫иеби3▌6 
+Л┬Хли3▌6 
 docker-compose.yml
-╫иеби3Ё'
+Л┬Хли3Ё'
 docs/01_ERROR_HANDLING.md
-╬иеби3Ж#
+М┬Хли3Ж#
 docs/02_MOON_BUILD.md
-╬иеби3∙!
+М┬Хли3∙!
 docs/03_WORKFLOW.md
-╬иеби3Е'
+М┬Хли3Е'
 docs/05_RUST_STANDARDS.md
-╬иеби3ё
+М┬Хли3ё
 docs/08_BEADS.md
-╬иеби3╜
-docs/09_JUJUTSU.md	╬иеби3a"
-docs/AI_DEV_LANE.md╬иеби3█├"
+М┬Хли3╜
+docs/09_JUJUTSU.md	М┬Хли3a"
+docs/AI_DEV_LANE.mdМ┬Хли3█├"
 docs/BAZEL_REMOTE.md
-╬иеби3иQ
-docs/BEADS.md╬иеби3юП$
+М┬Хли3иQ
+docs/BEADS.mdМ┬Хли3юП$
 docs/BEHAVIOR_TESTS.md
-╬иеби3К'
+М┬Хли3К'
 docs/CACHING.md
-╬иеби3юC
+М┬Хли3юC
 docs/CODANNA.md
-╬иеби3ё%
+М┬Хли3ё%
 docs/FUNCTIONAL_RUST.md
-╬иеби3К]*
+М┬Хли3К]*
 docs/OPENCODE_INTEGRATION.md
-╬иеби3▒!"
+М┬Хли3▒!"
 docs/QUALITY_GATE.md
-╬иеби3п&#
+М┬Хли3п&#
 docs/QUALITY_GATES.md
-╬иеби3Р$
+Н┬Хли3Р$
 docs/RESEARCH_NOTES.md
-╬иеби3┼)
+Н┬Хли3┼)
 docs/UBIQUITOUS_LANGUAGE.md
-╬иеби3 #
+Н┬Хли3 #
 docs/contract-spec.md
-╬иеби3║)7
+Н┬Хли3║)7
 )docs/diagrams/oya-architecture-noicons.d2
-╬иеби3о/
+Н┬Хли3о/
 !docs/diagrams/oya-architecture.d2
-╬иеби3в
+Н┬Хли3в
 1
-"docs/diagrams/oya-architecture.svg╬иеби3╟ё1
+"docs/diagrams/oya-architecture.svgН┬Хли3╟ё1
 #docs/diagrams/oya-execution-flow.d2
-╬иеби3е!4
+Н┬Хли3е!4
 &docs/diagrams/oya-execution-noicons.d2
-╬иеби3ф3
+Н┬Хли3ф3
 %docs/diagrams/oya-execution-simple.d2
-╬иеби3═,
+Н┬Хли3═,
 docs/diagrams/oya-execution.d2
-©иеби3ж
+Н┬Хли3ж
 .
-docs/diagrams/oya-execution.svg©иеби3≈╖2
+docs/diagrams/oya-execution.svgН┬Хли3≈╖2
 $docs/diagrams/oya-workflow-simple.d2
-©иеби3щ+
+Н┬Хли3щ+
 docs/diagrams/oya-workflow.d2
-©иеби3╛&9
+Н┬Хли3╛&9
 +docs/diagrams/restate-pattern-fix-simple.d2
-©иеби3в2
+Н┬Хли3в2
 $docs/diagrams/restate-pattern-fix.d2
-©иеби3▒4
-%docs/diagrams/restate-pattern-fix.svg©иеби3╧с=
+Н┬Хли3▒4
+%docs/diagrams/restate-pattern-fix.svgН┬Хли3╧с=
 /docs/plans/2026-02-18-cli-enhancement-design.md
-©иеби3╚nD
+О┬Хли3╚nD
 6docs/plans/2026-02-19-simplified-state-model-design.md
-©иеби3╠4>
-/docs/plans/2026-02-19-simplified-state-model.md©иеби3╦╓C
+О┬Хли3╠4>
+/docs/plans/2026-02-19-simplified-state-model.mdО┬Хли3╦╓C
 5docs/plans/2026-02-19-tail-tui-refactoring-summary.md
-©иеби3⌡1C
+О┬Хли3⌡1C
 5docs/plans/2026-02-19-tail-tui-verification-report.md
-©иеби3·:
+О┬Хли3·:
 ,docs/plans/2026-02-20-oya-tail-tui-design.md
-©иеби3█"4
-%docs/plans/2026-02-20-oya-tail-tui.md©иеби3⌡░=
+О┬Хли3█"4
+%docs/plans/2026-02-20-oya-tail-tui.mdО┬Хли3⌡░=
 /docs/plans/2026-02-22-zjj-removal-jj-br-plan.md
-©иеби3ё %
+О┬Хли3ё %
 docs/restate/COMPASS.md
-©иеби3Ю*.
+О┬Хли3Ю*.
  docs/restate/HOURLY_BEAD_PLAN.md
-©иеби3И&
-docs/restate/INDEX.json©иеби3Ф▐$
+О┬Хли3И&
+docs/restate/INDEX.jsonО┬Хли3Ф▐$
 docs/restate/README.md
-©иеби3╡4
+О┬Хли3╡4
 &docs/restate/ZJJ_RESTATE_PIVOT_PLAN.md
-©иеби3╠@R
+О┬Хли3╠@R
 Ddocs/restate/docs/admin-api/cluster_health/cluster-state-endpoint.md
-©иеби3 I
+О┬Хли3 I
 ;docs/restate/docs/admin-api/deployment/delete-deployment.md
-©иеби3ЁF
+О┬Хли3ЁF
 8docs/restate/docs/admin-api/deployment/get-deployment.md
-©иеби3┤H
+П┬Хли3┤H
 :docs/restate/docs/admin-api/deployment/list-deployments.md
-©иеби3ХK
+П┬Хли3ХK
 =docs/restate/docs/admin-api/deployment/register-deployment.md
-юиеби3╡I
+П┬Хли3╡I
 ;docs/restate/docs/admin-api/deployment/update-deployment.md
-юиеби3эI
+П┬Хли3эI
 ;docs/restate/docs/admin-api/health/health-check-endpoint.md
-юиеби3┬j
+П┬Хли3┬j
 \docs/restate/docs/admin-api/introspection/query-the-system-and-service-state-by-using-sql.md
-юиеби3дL
+П┬Хли3дL
 >docs/restate/docs/admin-api/invocation/cancel-an-invocation.md
-юиеби3©L
+П┬Хли3©L
 >docs/restate/docs/admin-api/invocation/delete-an-invocation.md
-юиеби3БJ
+П┬Хли3БJ
 <docs/restate/docs/admin-api/invocation/kill-an-invocation.md
-юиеби3ШK
+П┬Хли3ШK
 =docs/restate/docs/admin-api/invocation/pause-an-invocation.md
-юиеби3╔T
+П┬Хли3╔T
 Fdocs/restate/docs/admin-api/invocation/purge-a-completed-invocation.md
-юиеби3щP
+П┬Хли3щP
 Bdocs/restate/docs/admin-api/invocation/purge-invocation-journal.md
-юиеби3зQ
+П┬Хли3зQ
 Cdocs/restate/docs/admin-api/invocation/restart-invocation-as-new.md
-юиеби3фL
+П┬Хли3фL
 >docs/restate/docs/admin-api/invocation/resume-an-invocation.md
-юиеби3┌S
+П┬Хли3┌S
 Edocs/restate/docs/admin-api/service/get-service-openapi-definition.md
-юиеби3╒@
+П┬Хли3╒@
 2docs/restate/docs/admin-api/service/get-service.md
-юиеби3ОB
+П┬Хли3ОB
 4docs/restate/docs/admin-api/service/list-services.md
-юиеби3рQ
+П┬Хли3рQ
 Cdocs/restate/docs/admin-api/service/modify-service-configuration.md
-юиеби3─I
+П┬Хли3─I
 ;docs/restate/docs/admin-api/service/modify-service-state.md
-юиеби3ДP
+П┬Хли3ДP
 Bdocs/restate/docs/admin-api/service_handler/get-service-handler.md
-юиеби3╓R
+П┬Хли3╓R
 Ddocs/restate/docs/admin-api/service_handler/list-service-handlers.md
-юиеби3СM
+П┬Хли3СM
 ?docs/restate/docs/admin-api/subscription/create-subscription.md
-юиеби3┘M
+П┬Хли3┘M
 ?docs/restate/docs/admin-api/subscription/delete-subscription.md
-юиеби3┐J
+П┬Хли3┐J
 <docs/restate/docs/admin-api/subscription/get-subscription.md
-юиеби3│L
+П┬Хли3│L
 >docs/restate/docs/admin-api/subscription/list-subscriptions.md
-юиеби3ФL
+П┬Хли3ФL
 >docs/restate/docs/admin-api/version/get-version-information.md
-юиеби3М0
-#docs/restate/docs/ai/ai-examples.md	юиеби3@+
+П┬Хли3М0
+#docs/restate/docs/ai/ai-examples.md	П┬Хли3@+
 docs/restate/docs/ai/index.md
-юиеби3║(B
+П┬Хли3║(B
 4docs/restate/docs/ai/patterns/chat-ui-integration.md
-юиеби3М0A
+П┬Хли3М0A
 3docs/restate/docs/ai/patterns/competitive-racing.md
-юиеби3▀4@
+П┬Хли3▀4@
 2docs/restate/docs/ai/patterns/human-in-the-loop.md
-юиеби3┤?;
-,docs/restate/docs/ai/patterns/multi-agent.mdаиеби3Э└@
+П┬Хли3┤?;
+,docs/restate/docs/ai/patterns/multi-agent.mdП┬Хли3Э└@
 2docs/restate/docs/ai/patterns/notify-when-ready.md
-аиеби3■'>
+П┬Хли3■'>
 0docs/restate/docs/ai/patterns/parallelization.md
-аиеби3аa>
+П┬Хли3аa>
 0docs/restate/docs/ai/patterns/prompt-chaining.md
-аиеби3⌠27
+П┬Хли3⌠27
 )docs/restate/docs/ai/patterns/rollback.md
-аиеби3╨G7
+П┬Хли3╨G7
 )docs/restate/docs/ai/patterns/sessions.md
-аиеби3°MB
+Я┬Хли3°MB
 4docs/restate/docs/ai/patterns/streaming-responses.md
-аиеби3У$4
+Я┬Хли3У$4
 &docs/restate/docs/ai/patterns/tools.md
-аиеби3▐KA
+Я┬Хли3▐KA
 3docs/restate/docs/ai/sdk-integrations/google-adk.md
-аиеби3 H
+Я┬Хли3 H
 :docs/restate/docs/ai/sdk-integrations/integration-guide.md
-аиеби3┬9>
+Я┬Хли3┬9>
 0docs/restate/docs/ai/sdk-integrations/litellm.md
-аиеби3ШH
+Я┬Хли3ШH
 :docs/restate/docs/ai/sdk-integrations/openai-agents-sdk.md
-аиеби3┘	D
+Я┬Хли3┘	D
 6docs/restate/docs/ai/sdk-integrations/vercel-ai-sdk.md
-аиеби3╦1
-"docs/restate/docs/ai-quickstart.mdаиеби3√ц=
-.docs/restate/docs/cloud/connecting-services.mdаиеби3у░8
+Я┬Хли3╦1
+"docs/restate/docs/ai-quickstart.mdЯ┬Хли3√ц=
+.docs/restate/docs/cloud/connecting-services.mdЯ┬Хли3у░8
 *docs/restate/docs/cloud/getting-started.md
-аиеби3н&7
+Я┬Хли3н&7
 )docs/restate/docs/develop/ai-assistant.md
-аиеби3М'@
+Я┬Хли3М'@
 2docs/restate/docs/develop/java/concurrent-tasks.md
-аиеби3Р =
+Я┬Хли3Р =
 /docs/restate/docs/develop/java/durable-steps.md
-аиеби3⌡.>
+Я┬Хли3⌡.>
 0docs/restate/docs/develop/java/durable-timers.md
-аиеби3И#>
+Я┬Хли3И#>
 0docs/restate/docs/develop/java/error-handling.md
-биеби3╛?
+Я┬Хли3╛?
 1docs/restate/docs/develop/java/external-events.md
-биеби3лH7
+Я┬Хли3лH7
 )docs/restate/docs/develop/java/logging.md
-биеби3╜=
+Я┬Хли3╜=
 /docs/restate/docs/develop/java/serialization.md
-биеби3С'E
+Я┬Хли3С'E
 7docs/restate/docs/develop/java/service-communication.md
-биеби3╔N8
+Я┬Хли3╔N8
 *docs/restate/docs/develop/java/services.md
-биеби3░Q7
+Я┬Хли3░Q7
 )docs/restate/docs/develop/java/serving.md
-биеби3р#5
+Я┬Хли3р#5
 'docs/restate/docs/develop/java/state.md
-биеби3▐#7
+Я┬Хли3▐#7
 )docs/restate/docs/develop/java/testing.md
-биеби3╬B
+Я┬Хли3╬B
 4docs/restate/docs/develop/python/concurrent-tasks.md
-биеби3╥'?
+Я┬Хли3╥'?
 1docs/restate/docs/develop/python/durable-steps.md
-биеби3Ф%@
+Я┬Хли3Ф%@
 2docs/restate/docs/develop/python/durable-timers.md
-биеби3ь @
+Я┬Хли3ь @
 2docs/restate/docs/develop/python/error-handling.md
-биеби3┼#A
+Я┬Хли3┼#A
 3docs/restate/docs/develop/python/external-events.md
-биеби3╩1?
+Р┬Хли3╩1?
 1docs/restate/docs/develop/python/serialization.md
-биеби3╓)G
+Р┬Хли3╓)G
 9docs/restate/docs/develop/python/service-communication.md
-биеби3Е3:
+Р┬Хли3Е3:
 ,docs/restate/docs/develop/python/services.md
-биеби3ж$9
+Р┬Хли3ж$9
 +docs/restate/docs/develop/python/serving.md
-биеби3╗7
+Р┬Хли3╗7
 )docs/restate/docs/develop/python/state.md
-биеби3╔9
+Р┬Хли3╔9
 +docs/restate/docs/develop/python/testing.md
-биеби3 6
+Р┬Хли3 6
 (docs/restate/docs/develop/rust/README.md
-биеби3█>@
+Р┬Хли3█>@
 2docs/restate/docs/develop/rust/examples/counter.rs
-биеби3ъ	=
+Р┬Хли3ъ	=
 /docs/restate/docs/develop/rust/examples/cron.rs
-биеби3ИA
+Р┬Хли3ИA
 3docs/restate/docs/develop/rust/examples/failures.rs
-биеби3°@
+Р┬Хли3°@
 2docs/restate/docs/develop/rust/examples/greeter.rs
-биеби3б<
+Р┬Хли3б<
 .docs/restate/docs/develop/rust/examples/run.rs
-биеби3▐	?
+Р┬Хли3▐	?
 1docs/restate/docs/develop/rust/examples/schema.rs
-биеби3БD
-7docs/restate/docs/develop/rust/examples/services/mod.rs	биеби3CL
+Р┬Хли3БD
+7docs/restate/docs/develop/rust/examples/services/mod.rs	Р┬Хли3CL
 >docs/restate/docs/develop/rust/examples/services/my_service.rs
-биеби3йS
+Р┬Хли3йS
 Edocs/restate/docs/develop/rust/examples/services/my_virtual_object.rs
-биеби3ЧM
+Р┬Хли3ЧM
 ?docs/restate/docs/develop/rust/examples/services/my_workflow.rs
-биеби3б@
+Р┬Хли3б@
 2docs/restate/docs/develop/rust/examples/tracing.rs
-биеби3╪	5
+Р┬Хли3╪	5
 'docs/restate/docs/develop/rust/index.md
-циеби3Ф I
+Р┬Хли3Ф I
 ;docs/restate/docs/develop/rust/src/context/macro_support.rs
-циеби3√@
-1docs/restate/docs/develop/rust/src/context/mod.rsциеби3у╛C
+Р┬Хли3√@
+1docs/restate/docs/develop/rust/src/context/mod.rsР┬Хли3у╛C
 5docs/restate/docs/develop/rust/src/context/request.rs
-циеби3ф ?
+Р┬Хли3ф ?
 1docs/restate/docs/develop/rust/src/context/run.rs
-циеби3╪C
-4docs/restate/docs/develop/rust/src/context/select.rsциеби3т≤=
+Р┬Хли3╪C
+4docs/restate/docs/develop/rust/src/context/select.rsР┬Хли3т≤=
 /docs/restate/docs/develop/rust/src/discovery.rs
-циеби3Щ$D
+Р┬Хли3Щ$D
 6docs/restate/docs/develop/rust/src/endpoint/builder.rs
-циеби3╖qE
-6docs/restate/docs/develop/rust/src/endpoint/context.rsциеби3л╥V
+Р┬Хли3╖qE
+6docs/restate/docs/develop/rust/src/endpoint/context.rsР┬Хли3л╥V
 Hdocs/restate/docs/develop/rust/src/endpoint/futures/async_result_poll.rs
-циеби3·.X
+С┬Хли3·.X
 Jdocs/restate/docs/develop/rust/src/endpoint/futures/durable_future_impl.rs
-циеби3≥X
+С┬Хли3≥X
 Jdocs/restate/docs/develop/rust/src/endpoint/futures/handler_state_aware.rs
-циеби3шT
+С┬Хли3шT
 Fdocs/restate/docs/develop/rust/src/endpoint/futures/intercept_error.rs
-циеби3цH
+С┬Хли3цH
 :docs/restate/docs/develop/rust/src/endpoint/futures/mod.rs
-циеби3▒P
+С┬Хли3▒P
 Bdocs/restate/docs/develop/rust/src/endpoint/futures/select_poll.rs
-циеби3╝0I
+С┬Хли3╝0I
 ;docs/restate/docs/develop/rust/src/endpoint/futures/trap.rs
-циеби3ЪJ
+С┬Хли3ЪJ
 <docs/restate/docs/develop/rust/src/endpoint/handler_state.rs
-циеби3≤A
-2docs/restate/docs/develop/rust/src/endpoint/mod.rsциеби3э╞:
+С┬Хли3≤A
+2docs/restate/docs/develop/rust/src/endpoint/mod.rsС┬Хли3э╞:
 ,docs/restate/docs/develop/rust/src/errors.rs
-циеби3║%:
+С┬Хли3║%:
 ,docs/restate/docs/develop/rust/src/filter.rs
-циеби3╬?
+С┬Хли3╬?
 1docs/restate/docs/develop/rust/src/http_server.rs
-циеби3З%9
+С┬Хли3З%9
 +docs/restate/docs/develop/rust/src/hyper.rs
-циеби3▀:
+С┬Хли3▀:
 ,docs/restate/docs/develop/rust/src/lambda.rs
-циеби3╦58
-)docs/restate/docs/develop/rust/src/lib.rsциеби3≥ц9
+С┬Хли3╦58
+)docs/restate/docs/develop/rust/src/lib.rsС┬Хли3≥ц9
 +docs/restate/docs/develop/rust/src/serde.rs
-циеби3Оl;
+С┬Хли3Оl;
 -docs/restate/docs/develop/rust/src/service.rs
-циеби3─.
-!docs/restate/docs/develop/rust.md	циеби3;>
+С┬Хли3─.
+!docs/restate/docs/develop/rust.md	С┬Хли3;>
 0docs/restate/docs/develop/ts/concurrent-tasks.md
-циеби3╔!;
+С┬Хли3╔!;
 -docs/restate/docs/develop/ts/durable-steps.md
-циеби3Ы<
+С┬Хли3Ы<
 .docs/restate/docs/develop/ts/durable-timers.md
-циеби3Й <
+С┬Хли3Й <
 .docs/restate/docs/develop/ts/error-handling.md
-циеби3╠=
+С┬Хли3╠=
 /docs/restate/docs/develop/ts/external-events.md
-диеби3╡35
+С┬Хли3╡35
 'docs/restate/docs/develop/ts/logging.md
-диеби3╨;
+С┬Хли3╨;
 -docs/restate/docs/develop/ts/serialization.md
-диеби3┌C
+С┬Хли3┌C
 5docs/restate/docs/develop/ts/service-communication.md
-диеби3²H6
+С┬Хли3²H6
 (docs/restate/docs/develop/ts/services.md
-диеби3Й+5
+С┬Хли3Й+5
 'docs/restate/docs/develop/ts/serving.md
-диеби3≈ 3
+С┬Хли3≈ 3
 %docs/restate/docs/develop/ts/state.md
-диеби3╡5
+С┬Хли3╡5
 'docs/restate/docs/develop/ts/testing.md
-диеби3т'
+С┬Хли3т'
 docs/restate/docs/docs.md
-диеби3░*
-docs/restate/docs/examples.md	диеби377
-(docs/restate/docs/foundations/actions.mdдиеби3╓≈7
+С┬Хли3░*
+docs/restate/docs/examples.md	С┬Хли377
+(docs/restate/docs/foundations/actions.mdС┬Хли3╓≈7
 )docs/restate/docs/foundations/handlers.md
-диеби3ф:
+Т┬Хли3ф:
 ,docs/restate/docs/foundations/invocations.md
-диеби3╢2;
+Т┬Хли3╢2;
 -docs/restate/docs/foundations/key-concepts.md
-диеби3┼67
+Т┬Хли3┼67
 )docs/restate/docs/foundations/services.md
-диеби3┴v1
+Т┬Хли3┴v1
 #docs/restate/docs/guides/cluster.md
-диеби3С7J
+Т┬Хли3С7J
 <docs/restate/docs/guides/connecting-k8s-services-to-cloud.md
-диеби3╠0/
- docs/restate/docs/guides/cron.mdдиеби3┬╚4
-%docs/restate/docs/guides/databases.mdдиеби3ий:
+Т┬Хли3╠0/
+ docs/restate/docs/guides/cron.mdТ┬Хли3┬╚4
+%docs/restate/docs/guides/databases.mdТ┬Хли3ий:
 ,docs/restate/docs/guides/durable-webhooks.md
-диеби3║9
-*docs/restate/docs/guides/error-handling.mdдиеби3╚╕/
+Т┬Хли3║9
+*docs/restate/docs/guides/error-handling.mdТ┬Хли3╚╕/
 !docs/restate/docs/guides/index.md
-диеби3└:
+Т┬Хли3└:
 ,docs/restate/docs/guides/kafka-quickstart.md
-диеби3╥;=
+Т┬Хли3╥;=
 /docs/restate/docs/guides/local-to-replicated.md
-диеби3ь4=
-.docs/restate/docs/guides/parallelizing-work.mdдиеби3н╜8
-)docs/restate/docs/guides/rate-limiting.mdдиеби3ЧУ;
+Т┬Хли3ь4=
+.docs/restate/docs/guides/parallelizing-work.mdТ┬Хли3н╜8
+)docs/restate/docs/guides/rate-limiting.mdТ┬Хли3ЧУ;
 -docs/restate/docs/guides/request-lifecycle.md
-диеби3ЧC
+Т┬Хли3ЧC
 5docs/restate/docs/guides/restate-on-kind-with-helm.md
-диеби3Ё"G
+Т┬Хли3Ё"G
 9docs/restate/docs/guides/restate-on-kind-with-operator.md
-диеби3ч*0
-!docs/restate/docs/guides/sagas.mdдиеби3■÷0
+Т┬Хли3ч*0
+!docs/restate/docs/guides/sagas.mdТ┬Хли3■÷0
 "docs/restate/docs/guides/xstate.md
-еиеби3├(
+Т┬Хли3├(
 docs/restate/docs/index.md
-еиеби3╡&/
+Т┬Хли3╡&/
 !docs/restate/docs/installation.md
-еиеби3ЖW.
-docs/restate/docs/quickstart.mdеиеби3ёэ
+Т┬Хли3ЖW.
+docs/restate/docs/quickstart.mdТ┬Хли3ёэ
 :
 ,docs/restate/docs/references/architecture.md
-еиеби3б8
+Т┬Хли3б8
 *docs/restate/docs/references/cli-config.md
-еиеби3э5
-&docs/restate/docs/references/errors.mdеиеби3С┌2
-%docs/restate/docs/references/gopkg.md	еиеби3=5
-(docs/restate/docs/references/javadocs.md	еиеби3B3
-&docs/restate/docs/references/ktdocs.md	еиеби3B<
--docs/restate/docs/references/server-config.mdеиеби3жВ@
-1docs/restate/docs/references/sql-introspection.mdеиеби3░▌3
-&docs/restate/docs/references/tsdocs.md	еиеби3F3
-$docs/restate/docs/server/clusters.mdеиеби3э╣7
+Т┬Хли3э5
+&docs/restate/docs/references/errors.mdУ┬Хли3С┌2
+%docs/restate/docs/references/gopkg.md	У┬Хли3=5
+(docs/restate/docs/references/javadocs.md	У┬Хли3B3
+&docs/restate/docs/references/ktdocs.md	У┬Хли3B<
+-docs/restate/docs/references/server-config.mdУ┬Хли3жВ@
+1docs/restate/docs/references/sql-introspection.mdУ┬Хли3░▌3
+&docs/restate/docs/references/tsdocs.md	У┬Хли3F3
+$docs/restate/docs/server/clusters.mdУ┬Хли3э╣7
 )docs/restate/docs/server/configuration.md
-еиеби3и4
+У┬Хли3и4
 &docs/restate/docs/server/deploy/aws.md
-еиеби3╖6
+У┬Хли3╖6
 (docs/restate/docs/server/deploy/azure.md
-еиеби3┘7
+У┬Хли3┘7
 )docs/restate/docs/server/deploy/docker.md
-еиеби3⌡04
+У┬Хли3⌡04
 &docs/restate/docs/server/deploy/gcp.md
-еиеби3╓;
+У┬Хли3╓;
 -docs/restate/docs/server/deploy/kubernetes.md
-еиеби3┐Z0
+У┬Хли3┐Z0
 "docs/restate/docs/server/memory.md
-еиеби3аw2
+У┬Хли3аw2
 $docs/restate/docs/server/metadata.md
-еиеби3╩f<
+У┬Хли3╩f<
 .docs/restate/docs/server/monitoring/logging.md
-еиеби3┤<
+У┬Хли3┤<
 .docs/restate/docs/server/monitoring/metrics.md
-еиеби3┤<
+У┬Хли3┤<
 .docs/restate/docs/server/monitoring/tracing.md
-еиеби3ё!4
+У┬Хли3ё!4
 &docs/restate/docs/server/networking.md
-фиеби3╫}2
+У┬Хли3╫}2
 $docs/restate/docs/server/overview.md
-фиеби3└F4
-%docs/restate/docs/server/snapshots.mdфиеби3╚╕3
+У┬Хли3└F4
+%docs/restate/docs/server/snapshots.mdУ┬Хли3╚╕3
 %docs/restate/docs/server/upgrading.md
-фиеби3о:
-+docs/restate/docs/services/configuration.mdфиеби3Ш└E
+У┬Хли3о:
++docs/restate/docs/services/configuration.mdУ┬Хли3Ш└E
 7docs/restate/docs/services/deploy/cloudflare-workers.md
-фиеби3ъ1>
+У┬Хли3ъ1>
 0docs/restate/docs/services/deploy/deno-deploy.md
-фиеби3з)=
+У┬Хли3з)=
 /docs/restate/docs/services/deploy/kubernetes.md
-фиеби3с=9
+Ж┬Хли3с=9
 +docs/restate/docs/services/deploy/lambda.md
-фиеби3÷f=
+Ж┬Хли3÷f=
 /docs/restate/docs/services/deploy/standalone.md
-фиеби3≤9
+Ж┬Хли3≤9
 +docs/restate/docs/services/deploy/vercel.md
-фиеби3ч29
+Ж┬Хли3ч29
 +docs/restate/docs/services/introspection.md
-фиеби3╢mE
+Ж┬Хли3╢mE
 7docs/restate/docs/services/invocation/clients/go-sdk.md
-фиеби3╪6G
+Ж┬Хли3╪6G
 9docs/restate/docs/services/invocation/clients/java-sdk.md
-фиеби3╙WM
+Ж┬Хли3╙WM
 ?docs/restate/docs/services/invocation/clients/typescript-sdk.md
-фиеби3╖6;
+Ж┬Хли3╖6;
 -docs/restate/docs/services/invocation/http.md
-фиеби3Т3<
+Ж┬Хли3Т3<
 .docs/restate/docs/services/invocation/kafka.md
-фиеби3ЕYK
+Ж┬Хли3ЕYK
 =docs/restate/docs/services/invocation/managing-invocations.md
-фиеби3Йf4
+Ж┬Хли3Йf4
 &docs/restate/docs/services/security.md
-фиеби3╣6
+Ж┬Хли3╣6
 (docs/restate/docs/services/versioning.md
-фиеби3Э`3
-$docs/restate/docs/tour/google-adk.mdфиеби3Т╒C
-4docs/restate/docs/tour/microservice-orchestration.mdфиеби3Э╪6
-'docs/restate/docs/tour/openai-agents.mdфиеби3б▒9
-*docs/restate/docs/tour/vercel-ai-agents.mdфиеби3╝█2
-#docs/restate/docs/tour/workflows.mdгиеби3┐Д6
+Ж┬Хли3Э`3
+$docs/restate/docs/tour/google-adk.mdЖ┬Хли3Т╒C
+4docs/restate/docs/tour/microservice-orchestration.mdЖ┬Хли3Э╪6
+'docs/restate/docs/tour/openai-agents.mdЖ┬Хли3б▒9
+*docs/restate/docs/tour/vercel-ai-agents.mdЖ┬Хли3╝█2
+#docs/restate/docs/tour/workflows.mdЖ┬Хли3┐Д6
 (docs/restate/docs/use-cases/ai-agents.md
-гиеби3╪=
+Ж┬Хли3╪=
 /docs/restate/docs/use-cases/event-processing.md
-гиеби3÷YG
+Ж┬Хли3÷YG
 9docs/restate/docs/use-cases/microservice-orchestration.md
-гиеби3▓c6
+Ж┬Хли3▓c6
 (docs/restate/docs/use-cases/workflows.md
-гиеби3°;)
-docs/restate/llms-full.txtхиеби3ШЙb$
-docs/restate/llms.txtхиеби3╟и 
-rust-toolchain.toml	хиеби3 
+В┬Хли3°;)
+docs/restate/llms-full.txtЬ┬Хли3ШЙb$
+docs/restate/llms.txtЬ┬Хли3╟и 
+rust-toolchain.toml	Ь┬Хли3 
 rustfmt.toml
-хиеби3щ,
+Ь┬Хли3щ,
 services/pokemon-api/README.md
-ииеби3²
+Ь┬Хли3²
 /
-$services/pokemon-api/app/__init__.pyииеби3.
+$services/pokemon-api/app/__init__.pyЬ┬Хли3.
  services/pokemon-api/app/data.py
-ииеби3Х
+Ь┬Хли3Х
 .
  services/pokemon-api/app/main.py
-ииеби3ч0
+Ы┬Хли3ч0
 "services/pokemon-api/app/models.py
-ииеби3г1
+Ы┬Хли3г1
 #services/pokemon-api/pyproject.toml
-ииеби3╠/
+Ы┬Хли3╠/
 !services/pokemon-api/test_main.py
-ииеби3▓
+Ы┬Хли3▓
 
-src/lib.rs	ииеби3(&
+src/lib.rs	Ы┬Хли3(&
 src/lifecycle/effects.rs
-ииеби3АM"
+Ы┬Хли3АM"
 src/lifecycle/mod.rs
-ииеби3о*
+Ы┬Хли3о*
 src/lifecycle/transitions.rs
-ииеби3а)
+Ы┬Хли3а)
 src/lifecycle/types/bead.rs
-ииеби3Д*
+Ы┬Хли3Д*
 src/lifecycle/types/error.rs
-ииеби3с.
+Ы┬Хли3с.
  src/lifecycle/types/lifecycle.rs
-ииеби3р(
+Ы┬Хли3р(
 src/lifecycle/types/mod.rs
-ииеби3≈*
+Ы┬Хли3≈*
 src/lifecycle/types/model.rs
-ииеби3╖	'
+Ы┬Хли3╖	'
 src/lifecycle/types/pr.rs
-ииеби3┬.
+Ы┬Хли3┬.
  src/lifecycle/types/workspace.rs
-ииеби3≥(
-src/lifecycle/workflow.rsииеби3▒ 
+Ы┬Хли3≥(
+src/lifecycle/workflow.rsЫ┬Хли3▒ 
 src/main.rs
-ииеби3╟D*
-src/restate_oya/handlers.rsииеби3≥Й$
+Ы┬Хли3╟D*
+src/restate_oya/handlers.rsЗ┬Хли3≥Й$
 src/restate_oya/mod.rs
-ииеби3й)
+З┬Хли3й)
 src/restate_oya/opencode.rs
-ииеби3╥&
+З┬Хли3╥&
 src/restate_oya/trace.rs
-ииеби3ы&
+З┬Хли3ы&
 src/restate_oya/types.rs
-ииеби3Ь
+З┬Хли3Ь
  *нФJuXс ▌┐1╕$УZ▐ЛQ!Д0
