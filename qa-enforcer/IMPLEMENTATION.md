@@ -571,7 +571,7 @@ QA: Testing workflow: Create task and approve it
 # Phase 1: Planning
 QA: Workflow steps:
     1. oya new -s test-task
-    2. Verify task created (bd show test-task)
+    2. Verify task created (br show test-task)
     3. oya approve -s test-task
     4. Verify approved status
 
@@ -583,7 +583,7 @@ QA: ▶ Step 1: Create task
     ✅ PASS
 
     ▶ Step 2: Verify task exists
-    Command: bd show qa-workflow-test
+    Command: br show qa-workflow-test
     Exit Code: 0
     Output:
       ID: qa-workflow-test

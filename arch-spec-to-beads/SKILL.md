@@ -10,7 +10,7 @@ You are the overarching deterministic supervisor that drives an existing archite
 
 Note: The interactive Architectural specification phase happens BEFORE this orchestrator runs (using the `arch-design-qa` OpenCode agent).
 
-Artifact root: `.forge/<session-id>/`
+Artifact root: `.beads/forge/<session-id>/`
 
 ---
 
@@ -18,18 +18,18 @@ Artifact root: `.forge/<session-id>/`
 1) Set up the workspace:
 ```bash
 SESSION_ID="forge_$(date +%s)"
-mkdir -p .forge/$SESSION_ID
+mkdir -p .beads/forge/$SESSION_ID
 # Verify architecture-spec.md exists in the current directory
-cp architecture-spec.md .forge/$SESSION_ID/architecture-spec.md
+cp architecture-spec.md .beads/forge/$SESSION_ID/architecture-spec.md
 ```
-2) Initialize `.forge/$SESSION_ID/STATE.md` with "STATE 1". Update this file at the start of every subsequent state.
+2) Initialize `.beads/forge/$SESSION_ID/STATE.md` with "STATE 1". Update this file at the start of every subsequent state.
 
 ---
 
 ## STATE 1: THE DECOMPOSER (Molecular Shredding)
 **Action:** Launch `decomposer` Sub-Agent via the `Task` tool.
-**Prompt:** "Load the `decomposer` skill. Read `.forge/<session-id>/architecture-spec.md`. Run your deterministic pipeline (Draft -> Iron Shredder review -> Repair). Output the final JSON task array to `.forge/<session-id>/final-tasks.json`. Note that for large Epics, this may result in dozens or even hundreds of tasks."
-**Gate:** The Orchestrator MUST verify the file exists (`ls .forge/<session-id>/final-tasks.json`). If missing, fail-closed.
+**Prompt:** "Load the `decomposer` skill. Read `.beads/forge/<session-id>/architecture-spec.md`. Run your deterministic pipeline (Draft -> Iron Shredder review -> Repair). Output the final JSON task array to `.beads/forge/<session-id>/final-tasks.json`. Note that for large Epics, this may result in dozens or even hundreds of tasks."
+**Gate:** The Orchestrator MUST verify the file exists (`ls .beads/forge/<session-id>/final-tasks.json`). If missing, fail-closed.
 
 ---
 
@@ -38,10 +38,10 @@ cp architecture-spec.md .forge/$SESSION_ID/architecture-spec.md
 ```bash
 P="$HOME/.claude/skills/planner/planner.nu"
 # Pass the architecture spec in as the description using a HEREDOC
-nu $P init --session-id $SESSION_ID --description "$(cat .forge/$SESSION_ID/architecture-spec.md)"
+nu $P init --session-id $SESSION_ID --description "$(cat .beads/forge/$SESSION_ID/architecture-spec.md)"
 
 # Load the tasks directly from jq iteration to add-task
-cat .forge/$SESSION_ID/final-tasks.json | jq -c '.[]' | while read task; do
+cat .beads/forge/$SESSION_ID/final-tasks.json | jq -c '.[]' | while read task; do
   echo "$task" | nu $P add-task $SESSION_ID -
 done
 

@@ -330,11 +330,6 @@ When AI generates tasks, use this structure:
   "priority": 0-4,
   "effort": "15min|30min|1hr|2hr|4hr",
   "description": "detailed description",
-  "clarifications": {
-    "resolved": [],
-    "open": [],
-    "assumptions": []
-  },
   "ears": {
     "ubiquitous": ["THE SYSTEM SHALL ..."],
     "event_driven": [{"trigger": "WHEN ...", "shall": "THE SYSTEM SHALL ..."}],

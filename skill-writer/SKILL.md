@@ -9,9 +9,8 @@ allowed-tools:
   - Glob
   - Grep
   - Bash
-model: sonnet
 user-invocable: true
-version: 1.1.0
+version: 2.0.0
 ---
 
 ```jsonl
@@ -23,7 +22,7 @@ version: 1.1.0
 {"kind":"rule","id":"least_privilege","text":"Set allowed-tools to the minimum toolset required for the skill's actual job."}
 {"kind":"rule","id":"invocation_control","text":"Choose invocation flags by risk: side effects => disable-model-invocation true; background context => user-invocable false."}
 {"kind":"decision","id":"invocation_mode_matrix","options":[{"mode":"default","when":"advisory or low-risk skills","frontmatter":{}},{"mode":"manual_only","when":"deploy, commit, billing, destructive operations","frontmatter":{"disable-model-invocation":true}},{"mode":"model_only","when":"background knowledge overlays","frontmatter":{"user-invocable":false}}]}
-{"kind":"workflow","id":"author_or_refactor_skill","steps":["Define skill contract (goal, trigger language, invocation mode)","Select frontmatter fields intentionally","Draft concise SKILL.md behavior block","Push heavy detail into support docs","Link support docs from SKILL.md","Run checklist validation before finalizing"]}
+{"kind":"workflow","id":"author_or_refactor_skill","steps":["Define skill contract (goal, trigger language, invocation mode)","Select frontmatter fields intentionally","Draft concise SKILL.md behavior block","Push heavy detail into support docs","Link support docs from SKILL.md","MANDATORY: Verify YAML frontmatter parses correctly","MANDATORY: Invoke /truth-serum to audit the new skill for laziness and missing execution gates before finalizing"]}
 {"kind":"frontmatter_fields","fields":["name","description","argument-hint","allowed-tools","model","disable-model-invocation","user-invocable","context","agent","hooks"]}
 {"kind":"output_contract","for":"meta_skill_response","sections":["1) Proposed skill contract","2) Final frontmatter block","3) SKILL.md body","4) Support files to add/update","5) Rationale for key decisions"]}
 {"kind":"anti_pattern","id":"bloated_skill_md","problem":"Long monolithic SKILL.md with mixed reference and execution details","fix":"Use progressive disclosure docs and link by purpose"}
@@ -33,6 +32,9 @@ version: 1.1.0
 {"kind":"ref","file":"templates.md","use":"Copy/paste templates for common skill archetypes"}
 {"kind":"ref","file":"checklist.md","use":"Preflight and acceptance checks before shipping a skill"}
 {"kind":"ref","file":"examples.md","use":"High-signal examples of good and bad skill designs"}
+{"kind":"gate","id":"truth_serum_audit","text":"You MUST run the truth-serum skill on every skill you create to prove it contains actionable constraints, not just lazy prompt text."}
+{"kind":"gate","id":"hardware_level_enforcement","text":"Every generated skill MUST include a 'Mandatory Verification Gate' section with bash commands (like tests or linters) that the AI must run before exiting."}
+{"kind":"gate","id":"anti_hallucination","text":"Every generated skill MUST explicitly forbid hallucinated CLI output."}
 ```
 
 Additional resources for progressive disclosure:

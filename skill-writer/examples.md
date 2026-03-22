@@ -20,6 +20,16 @@ Why it fails: weak trigger language, ambiguous behavior.
 
 Why it works: fast load path for common calls, deep docs available when needed.
 
+## Good: Using Truth-Serum for Audit
+
+After writing a new skill, use `truth-serum` to audit it:
+- Run adversarial checks for ellipsis laziness
+- Verify path integrity (all referenced files exist)
+- Check for deleted tests
+- Validate contract parity with spec
+
+Why it works: ensures new skills follow the same rigor expected of all code.
+
 ## Bad: Monolithic SKILL.md
 
 - One file with hundreds of lines of mixed policy, templates, examples, and scripts.

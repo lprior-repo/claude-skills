@@ -76,7 +76,10 @@ version: 2.0.0
 {"kind":"command","id":"workflow","usage":"qa-enforcer workflow <workflow-description>","description":"Test user workflow end-to-end","arguments":["workflow-description: user story or goal"],"output":["Workflow completion","UX quality","Blockers"]}
 {"kind":"command","id":"reproduce","usage":"qa-enforcer reproduce \"<command>\"","description":"Reproduce and analyze specific issue","arguments":["command: exact command to run"],"output":["Execution result","Deep analysis","Suggested fix"]}
 {"kind":"command","id":"smoke","usage":"qa-enforcer smoke <target>","description":"Quick smoke test","arguments":["target: what to test"],"output":["Basic functionality","Fast pass/fail"]}
-{"kind":"ref","file":"references/examples.md","use":"CLI/API/Workflow/Adversarial examples"}
+{"kind":"example","id":"cli_basic","category":"cli","description":"Basic CLI testing workflow","code":"# Test CLI binary exists\nrun_test \"Binary exists\" \"which myapp\" 0\n\n# Test help\nrun_test \"Help works\" \"myapp --help\" 0\n\n# Test invalid input\nrun_test \"Invalid command fails\" \"myapp bogus-cmd\" 1\n\n# Test missing args\nrun_test \"Missing args shows error\" \"myapp new\" 1"}
+{"kind":"example","id":"api_basic","category":"api","description":"Basic API testing workflow","code":"# Test endpoint\nresponse=$(curl -s -w \"\\n%{http_code}\" \"http://localhost:8080/api/tasks\")\nstatus=$(echo \"$response\" | tail -1)\nbody=$(echo \"$response\" | head -1)\n\n# Validate status\nif [[ ! \"$status\" =~ ^[23] ]]; then\n  fail \"Unexpected status: $status\"\nfi\n\n# Validate JSON\necho \"$body\" | jq '.'"}
+{"kind":"example","id":"workflow_complete","category":"workflow","description":"End-to-end workflow test","code":"# User story: Create task and approve it\n\n# Step 1: Create\noutput=$(oya new -s test-task)\ngrep -q \"Created task\" <<< \"$output\" || fail \"Creation failed\"\n\n# Step 2: Verify\nbr show test-task || fail \"Not found\"\n\n# Step 3: Approve\noya approve -s test-task || fail \"Approval failed\"\n\n# Step 4: Verify state\nbr show test-task | grep -q \"status: approved\" || fail \"Not approved\""}
+{"kind":"example","id":"adversarial_sql","category":"adversarial","description":"SQL injection test","code":"# Test SQL injection\ncurl -s -X POST \"http://localhost:8080/api/tasks\" \\\n  -d \"name='; DROP TABLE tasks; --\"\n\n# Expected: Rejected safely\n# Failure: SQL error, data loss"}
 {"kind":"integration","id":"red_queen","description":"QA findings feed into red-queen lineage","workflow":["qa-enforcer test --adversarial","surivors become red-queen done_when entries","coevolution prevents regressions"]}
 {"kind":"integration","id":"tcr_enforcer","description":"QA validates before TCR commits","workflow":["qa-enforcer test","if pass → tcr-enforcer commit","if fail → tcr-enforcer revert"]}
 {"kind":"integration","id":"zjj","description":"Isolate fixes with zjj workspaces","workflow":["zjj add qa-fix-$(date +%s)","run qa-enforcer","fix issues","zjj done"]}
@@ -91,26 +94,6 @@ Invoke this skill when you need:
 - **Product owner review**: "Does this solve the problem?" → Validates outcomes
 - **Integration testing**: "Test the full flow" → Runs end-to-end
 - **Regression hunting**: "Find what broke" → Tests everything
-
-## Artifact Path Resolution (Bead Work)
-
-For bead-driven QA runs:
-- Read evaluation artifacts from `.beads/<bead-id>/`.
-- Write `qa-report.md` to `.beads/<bead-id>/`.
-- If generating defects, write `defects.md` in `.beads/<bead-id>/`.
-
-In lean bead pipelines:
-- Use `contract.md` as canonical expected behavior.
-- Use `implementation.md` as canonical implementation evidence.
-- Append QA runtime evidence into `verification.md` (and keep `qa-report.md` when required by command contract).
-
-Canonical resolver snippet:
-```bash
-BEAD_ID="<bead-id>"
-PRIMARY_DIR=".beads/$BEAD_ID"
-mkdir -p "$PRIMARY_DIR"
-READ_ROOT="$PRIMARY_DIR"
-```
 
 ## Core Philosophy (JSONL-Encoded)
 
