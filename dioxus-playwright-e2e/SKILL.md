@@ -1,3 +1,8 @@
+---
+name: dioxus-playwright-e2e
+description: This skill provides guidance for writing reliable end-to-end tests for Dioxus web applications using Playwright.
+---
+
 # Skill: Dioxus + Playwright E2E Testing
 
 This skill provides guidance for writing reliable end-to-end tests for Dioxus web applications using Playwright.

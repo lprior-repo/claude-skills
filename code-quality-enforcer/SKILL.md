@@ -1,3 +1,8 @@
+---
+name: code-quality-enforcer
+description: A relentless code quality guardian that ensures perfect code hygiene across the entire project.
+---
+
 # Code Quality Enforcer Skill
 
 A relentless code quality guardian that ensures perfect code hygiene across the entire project.
