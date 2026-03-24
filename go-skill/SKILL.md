@@ -26,7 +26,9 @@ Non-negotiable rules:
 
 Required sub-agents (launch via `Task` tool):
 - `rust-contract` (State 1)
-- `test-reviewer` (State 2)
+- `test-planner` (State 1.5)
+- `test-reviewer` (State 1.7, State 4.7)
+- `test-writer` (State 2)
 - `functional-rust` (State 3, State 6)
 - `qa-enforcer` (State 4.5)
 - `red-queen` (State 5)
@@ -73,44 +75,70 @@ Initialize `.beads/<bead-id>/STATE.md` with "STATE 1". Update this file at the s
 ---
 
 ## STATE 1: CONTRACT SYNTHESIS
-If `contract.md` and `martin-fowler-tests.md` do not exist:
+
+If `contract.md` does not exist:
 **Action:** Launch `rust-contract` Sub-Agent via the `Task` tool.
-**Prompt:** "Load the `rust-contract` skill. Implement a strict Design-by-Contract specification and Martin Fowler test plan for Bead: [ID]. Write spec to `../<bead-id>/.beads/<bead-id>/contract.md` and tests to `../<bead-id>/.beads/<bead-id>/martin-fowler-tests.md`."
-**Gate:** The Orchestrator MUST explicitly verify the files exist (`ls ../<bead-id>/.beads/<bead-id>/contract.md ../<bead-id>/.beads/<bead-id>/martin-fowler-tests.md`). If files are missing, fail-closed (Abort). Record contract receipt.
+**Prompt:** "Load the `rust-contract` skill. Implement a strict Design-by-Contract specification for Bead: [ID]. Write the contract (types, invariants, preconditions, postconditions, error taxonomy) to `../<bead-id>/.beads/<bead-id>/contract.md`. Contract only — no test plan."
+**Gate:** Orchestrator MUST verify `contract.md` exists (`ls ../<bead-id>/.beads/<bead-id>/contract.md`). If missing, fail-closed (Abort). Record contract receipt.
 
 ---
 
-## STATE 2: TEST PLAN REVIEW
-**Action:** Launch `test-reviewer` Sub-Agent via the `Task` tool.
-**Prompt:** "Load the `test-reviewer` skill. Read `../<bead-id>/.beads/<bead-id>/contract.md` and `../<bead-id>/.beads/<bead-id>/martin-fowler-tests.md`. Review against Testing Trophy, Dan North BDD, and Dave Farley ATDD doctrines. If flawed, output 'STATUS: REJECTED' and list defects in `../<bead-id>/.beads/<bead-id>/test-defects.md`. If flawless, output 'STATUS: APPROVED'."
+## STATE 1.5: TEST PLANNING
+
+**Action:** Launch `test-planner` Sub-Agent via the `Task` tool.
+**Prompt:** "Load the `test-planner` skill. Read `../<bead-id>/.beads/<bead-id>/contract.md`. Produce an exhaustive `test-plan.md` covering: Testing Trophy allocation, BDD Given-When-Then scenarios for every public function, proptest invariants, cargo-fuzz targets, Kani harness specs, and mutation testing checkpoints. Write to `../<bead-id>/.beads/<bead-id>/test-plan.md`."
+**Gate:** Orchestrator MUST verify `test-plan.md` exists. If missing, fail-closed (Abort). Record receipt.
+
+---
+
+## STATE 1.7: TEST PLAN REVIEW
+
+**Action:** Launch `test-reviewer` Sub-Agent via the `Task` tool — **Mode 1: Plan Inquisition**.
+**Prompt:** "Load the `test-reviewer` skill. Run Mode 1 (Plan Inquisition). Read `../<bead-id>/.beads/<bead-id>/contract.md` and `../<bead-id>/.beads/<bead-id>/test-plan.md`. Audit the plan against all six axes: contract parity, assertion sharpness, trophy allocation, boundary completeness, mutation survivability, and Holzmann rules. Write findings to `../<bead-id>/.beads/<bead-id>/test-plan-review.md`. Output STATUS: APPROVED or STATUS: REJECTED."
+
 **Gate:**
-- `STATUS: APPROVED`: Proceed to State 3.
-- `STATUS: REJECTED`: Loop back to State 1 passing defects (Max retries: 3).
+- `STATUS: APPROVED`: Proceed to State 2.
+- `STATUS: REJECTED`: Loop back to State 1.5 passing defects from `test-plan-review.md` (Max retries: 3). If still failing after 3 loops, ABORT.
+
+---
+
+## STATE 2: TDD RED PHASE
+
+**Action:** Launch `test-writer` Sub-Agent via the `Task` tool — **Red Phase only**.
+**Prompt:** "Load the `test-writer` skill. Read `../<bead-id>/.beads/<bead-id>/contract.md` and `../<bead-id>/.beads/<bead-id>/test-plan.md`. Write ALL tests specified in the plan: unit tests, integration tests, proptest invariants, fuzz targets, Kani harnesses. The implementation does NOT exist yet — tests must be written to compile but FAIL (red phase). After writing, run `cargo nextest run 2>&1 | tail -10` and confirm tests are RED. Do NOT write any implementation code. Reply 'RED PHASE COMPLETE: N tests failing' with the nextest output."
+
+**Gate:**
+- Tests compile AND fail (red) → Proceed to State 3.
+- Tests pass (somehow green without implementation) → **ABORT**. Something is wrong — either the implementation already exists or the tests are hollow.
+- Tests fail to compile → Loop back with compile errors (Max retries: 2).
 
 ---
 
 ## STATE 3: IMPLEMENTATION
+
 **Action:** Launch `functional-rust` Sub-Agent via `Task` tool.
-**Prompt:** "Load `functional-rust` and `coding-rigor` skills. Read `../<bead-id>/.beads/<bead-id>/contract.md` and `../<bead-id>/.beads/<bead-id>/martin-fowler-tests.md`. Implement this contract strictly adhering to Data->Calc->Actions, zero panics/unwrap/mut. Write implementation summary to `../<bead-id>/.beads/<bead-id>/implementation.md`."
-**Gate:** Wait for `implementation.md`. The Orchestrator MUST explicitly verify the file exists (`ls ../<bead-id>/.beads/<bead-id>/implementation.md`). If missing, retry the sub-agent. Proceed to State 4.
+**Prompt:** "Load `functional-rust` and `coding-rigor` skills. Read `../<bead-id>/.beads/<bead-id>/contract.md`, `../<bead-id>/.beads/<bead-id>/test-plan.md`, and the failing tests already written in the codebase. The failing tests are your authoritative specification — make them pass. Implement strictly adhering to Data->Calc->Actions, zero panics/unwrap/mut. Write implementation summary to `../<bead-id>/.beads/<bead-id>/implementation.md`."
+**Gate:** Wait for `implementation.md`. Orchestrator MUST verify file exists. If missing, retry. Proceed to State 4.
 
 ---
 
 ## STATE 4: MOON GATE (MACHINE VERIFICATION)
-**Action:** Run validation strictly, capturing output for the sub-agent if it fails.
+
+**Action:** Run validation strictly, capturing output:
 ```bash
 cd ../<bead-id> && moon run :quick > .beads/<bead-id>/compiler-errors.log 2>&1
 cd ../<bead-id> && moon run :test >> .beads/<bead-id>/compiler-errors.log 2>&1
 cd ../<bead-id> && moon run :ci >> .beads/<bead-id>/compiler-errors.log 2>&1
 cd ../<bead-id> && moon run :e2e >> .beads/<bead-id>/compiler-errors.log 2>&1
 ```
-- If RED: Launch `functional-rust` sub-agent via `Task` tool.
-  **Prompt:** "Load `functional-rust` skill. Read `../<bead-id>/.beads/<bead-id>/compiler-errors.log` and `../<bead-id>/.beads/<bead-id>/contract.md`. Fix the compilation errors. Reply 'FIXES APPLIED'." (Max retries: 2).
-- If GREEN: Record p2 receipts and Proceed to State 4.5.
+- If RED: Launch `functional-rust` sub-agent.
+  **Prompt:** "Load `functional-rust` skill. Read `../<bead-id>/.beads/<bead-id>/compiler-errors.log` and `../<bead-id>/.beads/<bead-id>/contract.md`. Fix the compilation/test errors. Do NOT modify tests to make them pass — fix the implementation. Reply 'FIXES APPLIED'." (Max retries: 2).
+- If GREEN: Record p2 receipts and proceed to State 4.5.
 
 ---
 
 ## STATE 4.5: QA EXECUTION (REQUIRED)
+
 **Action:** Launch `qa-enforcer` Sub-Agent via `Task` tool.
 **Prompt:** "Load the `qa-enforcer` skill. Execute actual CLI commands and verify behavior against the contract. Run smoke tests, integration tests, and adversarial tests. Write results to `../<bead-id>/.beads/<bead-id>/qa-report.md`. Include: exact commands run, actual output, exit codes, expected vs actual, and reproduction steps."
 
@@ -126,19 +154,34 @@ cd ../<bead-id> && moon run :e2e >> .beads/<bead-id>/compiler-errors.log 2>&1
 ---
 
 ## STATE 4.6: QA REVIEW
+
 **Action:** Agent reviews `qa-report.md` and makes decision.
 
 **Decision:**
-- ✅ **PASS** (no critical issues): Proceed to State 5
+- ✅ **PASS** (no critical issues): Proceed to State 4.7
 - ❌ **FAIL** (critical issues): Return to **State 3 (Implementation)** to fix issues
 
-**Artifact:** `.beads/<bead-id>/qa-review.md` - Agent documents approval/rejection decision
+**Artifact:** `.beads/<bead-id>/qa-review.md`
 
 **Retry:** Up to 5 times (Max retries: 5)
 
 ---
 
+## STATE 4.7: TEST SUITE REVIEW
+
+**Action:** Launch `test-reviewer` Sub-Agent via the `Task` tool — **Mode 2: Suite Inquisition**.
+**Prompt:** "Load the `test-reviewer` skill. Run Mode 2 (Suite Inquisition). Run all four tiers: Tier 0 static analysis, Tier 1 execution gates, Tier 2 coverage, Tier 3 mutation. The project root is `../<bead-id>`. Write findings to `../<bead-id>/.beads/<bead-id>/test-suite-review.md`. Output STATUS: APPROVED or STATUS: REJECTED with full evidence."
+
+**Gate:**
+- `STATUS: APPROVED`: Proceed to State 5.
+- `STATUS: REJECTED`: Launch `test-writer` sub-agent.
+  **Prompt:** "Load `test-writer` skill. Read `../<bead-id>/.beads/<bead-id>/test-suite-review.md`. Fix every finding in the MANDATE section. Write additional tests for every surviving mutant. Reply 'SUITE FIXED'."
+  Then return to State 4.7 for full re-review. (Max retries: 3)
+
+---
+
 ## STATE 5: ADVERSARIAL REVIEW (RED QUEEN)
+
 **Action:** Launch `red-queen` Sub-Agent via `Task` tool.
 **Prompt:** "Load the `red-queen` skill. Run adversarial testing to break the implementation. Generate test cases that attempt to violate contracts, edge cases, and failure modes. Write results to `../<bead-id>/.beads/<bead-id>/red-queen-report.md`."
 
@@ -153,13 +196,14 @@ cd ../<bead-id> && moon run :e2e >> .beads/<bead-id>/compiler-errors.log 2>&1
 ---
 
 ## STATE 5.5: BLACK HAT CODE REVIEW
+
 **Action:** Launch `black-hat-reviewer` Sub-Agent via `Task` tool.
 **Prompt:** "Load `black-hat-reviewer` skill. Read `../<bead-id>/.beads/<bead-id>/contract.md` and `../<bead-id>/.beads/<bead-id>/implementation.md`. Inspect the source files. Ruthlessly enforce the 5 phases of code review. If flawed, write to `../<bead-id>/.beads/<bead-id>/defects.md` and output 'STATUS: REJECTED'. If flawless, output 'STATUS: APPROVED'."
 
 **Artifact:** `.beads/<bead-id>/defects.md`
 
 **Gate:**
-- `STATUS: APPROVED`: Proceed to State 5.6
+- `STATUS: APPROVED`: Proceed to State 5.7
 - `STATUS: REJECTED`: Proceed to State 6
 
 **Retry:** Up to 5 times (Max retries: 5)
@@ -167,39 +211,36 @@ cd ../<bead-id> && moon run :e2e >> .beads/<bead-id>/compiler-errors.log 2>&1
 ---
 
 ## STATE 5.7: KANI MODEL CHECKING (MANDATORY)
-**Action:** Agent must provide EITHER:
 
-**Option A - Run Kani:**
+Kani harnesses were written by `test-writer` in State 2. This state executes them.
+
+**Action:**
 ```bash
-cd ../<bead-id> && cargo kani
+cd ../<bead-id> && cargo kani 2>&1 | tee .beads/<bead-id>/kani-report.md
 ```
-**Prompt:** "Run Kani model checker on critical state machine implementations. Verify no reachable panic states. Write results to `../<bead-id>/.beads/<bead-id>/kani-report.md`."
-
-**Option B - Formal Argument to Skip:**
-If Kani is not needed, agent must provide a formal written argument in `../<bead-id>/.beads/<bead-id>/kani-justification.md` that includes:
-- What critical state machines exist (or don't)
-- Why those state machines cannot reach invalid states
-- What guarantees the contract/tests provide
-- Formal reasoning, not hand-waving
 
 **Gate:**
 - If Kani counterexample found: Proceed to State 6 (Repair Loop)
 - If Kani verified: Proceed to State 7
-- If formal argument provided: Agent reviews and either approves (proceed to State 7) or rejects (proceed to State 6)
+- If no harnesses exist (test-writer skipped Kani layer): Require written justification
+  in `../<bead-id>/.beads/<bead-id>/kani-justification.md` — formal argument why Kani
+  is not needed for this bead's critical invariants.
 
 **Retry:** Up to 5 times (Max retries: 5)
 
 ---
 
 ## STATE 6: THE REPAIR LOOP
+
 **Action:** Launch `functional-rust` Sub-Agent via `Task` tool.
-**Prompt:** "Load `functional-rust` skill. Read `../<bead-id>/.beads/<bead-id>/defects.md`. Edit source files to fix every defect. Reply 'FIXES APPLIED'."
-**Gate:** Return to STATE 4 (Re-run Moon, QA, Red Queen, Black Hat, Kani).
+**Prompt:** "Load `functional-rust` skill. Read `../<bead-id>/.beads/<bead-id>/defects.md`. Edit source files to fix every defect. Do NOT modify tests to make them pass — fix the implementation. Reply 'FIXES APPLIED'."
+**Gate:** Return to STATE 4 (Re-run Moon, QA, Test Suite Review, Red Queen, Black Hat, Kani).
 **HARD LIMIT:** If looping > 5 times, ABORT.
 
 ---
 
 ## STATE 7: ARCHITECTURAL DRIFT & POLISH
+
 **Action:** Launch `architectural-drift` Sub-Agent via `Task` tool.
 **Prompt:** "Load `architectural-drift` and `scott-ddd-refactor` skills. Review the source files. Enforce the <300 line limit per file and apply Scott Wlaschin DDD principles to eliminate primitive obsession and ensure explicit state transitions. If you edit files to split modules or improve DDD, output 'STATUS: REFACTORED'. If the codebase is already perfect, output 'STATUS: PERFECT'."
 **Gate:**
@@ -209,7 +250,8 @@ If Kani is not needed, agent must provide a formal written argument in `../<bead
 ---
 
 ## STATE 8: LANDING AND CLEANUP
-Once QA, Red Queen, Black Hat, Kani, and Architectural Drift approve AND Moon is green:
+
+Once QA, Test Suite Review, Red Queen, Black Hat, Kani, and Architectural Drift approve AND Moon is green:
 ```bash
 cd ../<bead-id> && bd show <bead-id>
 cd ../<bead-id> && jj git fetch

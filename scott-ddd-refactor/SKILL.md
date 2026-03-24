@@ -9,7 +9,6 @@ allowed-tools:
   - Glob
   - Grep
   - Bash
-model: sonnet
 user-invocable: true
 version: 1.0.0
 ---

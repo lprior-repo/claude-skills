@@ -11,7 +11,6 @@ allowed-tools:
   - AskUserQuestion
   - mcp__codanna__*
   - mcp__web_reader__webReader
-model: sonnet
 user-invocable: true
 argument-hint: [CLI binary, API endpoint, test target, or scope]
 version: 2.0.0

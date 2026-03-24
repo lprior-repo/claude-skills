@@ -8,7 +8,6 @@ allowed-tools:
   - Edit
   - Glob
   - Grep
-model: sonnet
 user-invocable: true
 version: 1.9.0
 ---

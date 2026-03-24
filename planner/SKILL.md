@@ -11,7 +11,6 @@ allowed-tools:
   - Task
   - TodoWrite
   - mcp__codanna__*
-model: sonnet
 user-invocable: true
 argument-hint: [description of work to plan]
 ---

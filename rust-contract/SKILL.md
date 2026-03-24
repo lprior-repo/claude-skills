@@ -7,7 +7,6 @@ allowed-tools:
   - Edit
   - Glob
   - Grep
-model: sonnet
 user-invocable: true
 argument-hint: [bead id or feature description]
 version: 1.0.0

@@ -9,7 +9,6 @@ allowed-tools:
   - Task
   - Glob
   - Grep
-model: opus
 user-invocable: true
 argument-hint: [input-spec.md] [output-tasks.json]
 ---

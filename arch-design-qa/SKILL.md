@@ -9,7 +9,6 @@ allowed-tools:
   - Grep
   - Bash
   - WebFetch
-model: opus
 user-invocable: true
 argument-hint: [feature or system description]
 ---

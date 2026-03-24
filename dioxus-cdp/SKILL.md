@@ -3,7 +3,6 @@ name: dioxus-cdp
 description: Auto-debugging tool for Dioxus applications using pure-Rust fantoccini (WebDriver). Use when debugging Dioxus UI, replicating bugs, or interacting with the DOM.
 argument-hint: ""
 allowed-tools: [bash, read, edit, write, glob, grep]
-model: gemini-3-flash-preview
 ---
 
 # Skill: dioxus-cdp
