@@ -1,27 +1,6 @@
 ---
 name: test-writer
-description: |
-  The beast. Ultimate Rust test enforcer and writer. Writes exhaustive tests across the FULL
-  ecosystem: inline #[cfg(test)] unit tests, /tests/ integration tests, proptest property
-  tests, cargo-fuzz targets, Kani formal verification harnesses, cargo-mutants validation,
-  insta snapshots, and criterion benchmarks. Enforces the Testing Trophy (Fowler + Farley +
-  North + Google SWE Book). Acts as its own black-hat reviewer — audits gaps, hammers the
-  implementation author to fill them, and REFUSES to declare done until all gates pass.
-
-  Use when implementing tests for ANY Rust code. Triggers on: "write tests", "implement tests",
-  "test this code", "add coverage", "test suite", "TDD", "red phase", or after any code
-  implementation bead. If you see Rust code without tests, trigger this skill immediately.
-  This skill also runs after test-planner produces a test-plan.md.
-allowed-tools:
-  - Read
-  - Write
-  - Edit
-  - Bash
-  - Glob
-  - Grep
-user-invocable: true
-argument-hint: "[bead id or file path to test]"
-version: 1.0.0
+description: "Ultimate Rust test enforcer. Writes exhaustive tests across unit, integration, proptest, and Kani. Enforces testing trophy."
 ---
 
 # Test Writer — The Beast

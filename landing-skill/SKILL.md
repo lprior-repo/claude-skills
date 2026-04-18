@@ -1,7 +1,6 @@
 ---
 name: landing-skill
-description: "Session completion enforcer - runs quality gates, syncs code, pushes to remote, and hands off cleanly. MANDATORY before ending any work session."
-allowed-tools: ["bash", "glob", "grep", "read", "write", "edit", "task"]
+description: "Session completion enforcer - runs quality gates, syncs code, pushes to remote, and hands off cleanly."
 ---
 
 # Landing the Plane Skill

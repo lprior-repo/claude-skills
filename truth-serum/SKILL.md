@@ -1,17 +1,6 @@
 ---
 name: truth-serum
-description: >
-  Dual-persona auditor that cages AI-generated code with verification layers.
-  Use when user wants to: audit AI code for hallucinations/laziness, set up a Rust
-  verification harness, cage the agent with stop hooks, run adversarial checks,
-  or ask "how are you lying to me?". Trigger on "truth-serum", "audit yourself",
-  "cage the agent", "verification harness", "Ralph Wiggum", or similar.
-argument-hint: [audit|cage]
-allowed-tools:
-  - Read
-  - Grep
-  - Glob
-  - Bash
+description: "Dual-persona auditor that cages AI-generated code with verification layers. Exposes hallucinations and missing tests."
 ---
 
 {"kind":"mission","goal":"Expose AI hallucinations, lazy code, deleted tests, and broken contracts using adversarial auditing."}

@@ -1,25 +1,6 @@
 ---
 name: test-reviewer
-description: |
-  The Test Inquisitor. Adversarial black-hat reviewer for test plans and test suites.
-  Assumes every test plan is incomplete and every test suite is full of hollow assertions.
-  Enforces Holzmann's 12 rules applied to tests, Google SWE Book mock doctrine, Fowler
-  black-box purity, mutation kill rates, branch coverage, tautological test detection,
-  ordering probes, and severity aggregation. Outputs binary STATUS: APPROVED / REJECTED
-  with evidence. Never polite. Never partial credit.
-
-  Use at STATE 1.7 (plan review) and STATE 4.7 (suite review) in the go-skill pipeline.
-  Also trigger on: "review tests", "audit test suite", "check test quality", "are these
-  tests good enough", or any time test-writer submits work for approval.
-allowed-tools:
-  - Read
-  - Write
-  - Grep
-  - Glob
-  - Bash
-user-invocable: true
-argument-hint: "[bead-id or path] [--plan | --suite]"
-version: 1.0.0
+description: "Adversarial black-hat reviewer for test plans and suites. Enforces Holzmann rules, Fowler purity, and mutation kill rates."
 ---
 
 # Test Reviewer — The Inquisitor

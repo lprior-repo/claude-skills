@@ -1625,20 +1625,142 @@ def expand-template [task_data: record, bead_id: string] {
   let happy_tests = ($task_data.tests?.happy? | default ["Basic happy path works"])
   let error_tests = ($task_data.tests?.error? | default ["Invalid input returns appropriate error"])
 
-  # Build research
-  let research_files = ($task_data.research?.files? | default [])
-  let research_questions = ($task_data.research?.questions? | default ["What existing patterns should be followed?"])
+  # Build research — extract specific descriptions from task data
+  let research_files_raw = ($task_data.research?.files? | default [])
+  let research_patterns = ($task_data.research?.patterns? | default [])
+  let research_prior_art = ($task_data.research?.prior_art? | default [])
+  let research_questions = ($task_data.research?.questions? | default [])
 
   # Build implementation phases
   let phase_0 = ($task_data.implementation?.phase_0? | default ["Read relevant files and understand existing patterns"])
   let phase_1 = ($task_data.implementation?.phase_1? | default ["Write failing tests"])
   let phase_2 = ($task_data.implementation?.phase_2? | default ["Implement to make tests pass"])
 
+  # Build inversions from task data (not hardcoded)
+  let inv_usability = ($task_data.inversions?.usability_failures? | default [])
+  let inv_security = ($task_data.inversions?.security_failures? | default [])
+  let inv_data = ($task_data.inversions?.data_integrity_failures? | default [])
+  let inv_integration = ($task_data.inversions?.integration_failures? | default [])
+  let all_inversions = ($inv_usability | append $inv_security | append $inv_data | append $inv_integration)
+
+  # Build edge tests
+  let edge_tests = ($task_data.tests?.edge? | default [])
+
   # Build context
   let related_files = ($task_data.context?.related_files? | default [])
   let similar_impls = ($task_data.context?.similar? | default [])
+  let related_file_paths = ($related_files | each { |f|
+    if ($f | describe) == "record" { $f.path } else { $f }
+  })
+  let real_input_context = if ($related_file_paths | length) > 0 {
+    $"Task scope: ($description). Relevant files: (($related_file_paths | str join ', '))."
+  } else {
+    $"Task scope: ($description). Use the research_requirements files_to_read as the concrete input surface."
+  }
+
+  # Detect repo context for project-aware defaults
+  let repo_context = (detect-repo-context)
+  let repo_root = $repo_context.repo_root
 
   # Generate full CUE format
+  # Inversions section — from task data or project-aware fallback
+  let inversions_cue = if ($all_inversions | length) > 0 {
+    let inv_lines = ($all_inversions | each { |inv|
+      $'{failure: \"($inv.failure)\", prevention: \"($inv.prevention)\", test_for_it: \"($inv.test_for_it)\"}'
+    } | str join ',\n      ')
+    $"    [\n      ($inv_lines)\n    ]"
+  } else {
+    $"    [\n      {failure: \"Implementation diverges from the task contract\", prevention: \"Write the named failing tests first, then implement only enough code to satisfy them\", test_for_it: \"test_contract_alignment\"}\n    ]"
+  }
+
+  # Acceptance tests — use actual test descriptions from task data
+  let happy_cue = if ($happy_tests | length) > 0 {
+    let lines = ($happy_tests | each { |t|
+      $'{name: \"test_($t | str replace -a " " "_" | str replace -a "(" "" | str replace -a ")" "" | str replace -a ":" "" | str downcase | str substring 0..<80)\", given: \"($description)\", when: \"($t)\", then: [\"($t)\"], real_input: \"($real_input_context)\", expected_output: \"($t)\"}'
+    } | str join ',\n      ')
+    $"    [\n      ($lines)\n    ]"
+  } else {
+    $"    [\n      {name: \"test_happy_path\", given: \"Valid inputs\", when: \"User executes command\", then: [\"Exit code is 0\", \"Output is correct\"], real_input: \"command input\", expected_output: \"expected output\"}\n    ]"
+  }
+
+  let error_cue = if ($error_tests | length) > 0 {
+    let lines = ($error_tests | each { |t|
+      $'{name: \"test_($t | str replace -a " " "_" | str replace -a "(" "" | str replace -a ")" "" | str replace -a ":" "" | str downcase | str substring 0..<80)\", given: \"Error precondition derived from contracts and invariants\", when: \"($t)\", then: [\"($t)\"], real_input: \"($real_input_context)\", expected_output: null, expected_error: \"($t)\"}'
+    } | str join ',\n      ')
+    $"    [\n      ($lines)\n    ]"
+  } else {
+    $"    [\n      {name: \"test_error_path\", given: \"Invalid inputs\", when: \"User executes command\", then: [\"Exit code is non-zero\", \"Error message is clear\"], real_input: \"invalid input\", expected_output: null, expected_error: \"error message\"}\n    ]"
+  }
+
+  let e2e_command = if ($phase_2 | length) > 0 {
+    let first_impl = ($phase_2 | first)
+    $"Validate final behavior after: ($first_impl)"
+  } else {
+    "Validate final behavior with the command-level integration path for this task"
+  }
+
+  let failure_look_file = if ($related_file_paths | length) > 0 {
+    ($related_file_paths | first)
+  } else if ($research_files_raw | length) > 0 {
+    let first_research = ($research_files_raw | first)
+    if ($first_research | describe) == "record" { $first_research.path } else { $first_research }
+  } else {
+    "research_notes.md"
+  }
+
+  # E2E tests — project-aware, no hardcoded binary name
+  let e2e_cue = $"    pipeline_test: {{
+      name: \"test_full_pipeline\"
+      description: \"End-to-end test of ($title)\"
+      setup: {{}}
+      execute: {{
+        command: \"($e2e_command)\"
+      }}
+      verify: {{
+        exit_code: 0
+      }}
+    }}"
+
+  # Failure modes — from task data or project-aware fallback
+  let failure_cue = $"    failure_modes: [
+      {symptom: \"Tests fail\", likely_cause: \"Implementation does not match specification\", where_to_look: [{{file: \"($failure_look_file)\", what_to_check: \"Compare implementation and tests with contracts postconditions and invariants\"}}], fix_pattern: \"Re-read task specification, fix the failing test, then repair the implementation to satisfy the contract\"}
+    ]"
+
+  # Anti-hallucination — use actual related files, never hallucinate src/main.rs
+  let read_before_write_cue = if ($related_files | length) > 0 {
+    $related_files | each { |f|
+      let file_path = (if ($f | describe) == "record" { $f.path } else { $f })
+      $'{file: \"($file_path)\", must_read_first: true, key_sections_to_understand: [\"All existing implementations\"]}'
+    } | str join ',\n      '
+  } else {
+    let fallback_file = if ($research_files_raw | length) > 0 {
+      let first_research = ($research_files_raw | first)
+      if ($first_research | describe) == "record" { $first_research.path } else { $first_research }
+    } else {
+      "research_notes.md"
+    }
+    $'{file: \"($fallback_file)\", must_read_first: true, key_sections_to_understand: [\"All existing implementations\"]}'
+  }
+
+  # Research files — preserve what_to_extract from task data
+  let research_files_cue = if ($research_files_raw | length) > 0 {
+    $research_files_raw | each { |f|
+      let file_path = (if ($f | describe) == "record" { $f.path } else { $f })
+      let extract_goal = (if ($f | describe) == "record" and ("what_to_extract" in $f) { $f.what_to_extract } else { "All patterns and implementations" })
+      $'{path: \"($file_path)\", what_to_extract: \"($extract_goal)\", document_in: \"research_notes.md\"}'
+    } | str join ',\n      '
+  } else {
+    $"\"No specific files specified — read related_files first\""
+  }
+
+  let research_questions_cue = if ($research_questions | length) > 0 {
+    $research_questions | each { |q|
+      $'{question: \"($q)\", answered: false}'
+    } | str join ',\n      '
+  } else {
+    $"\"No specific research questions defined\""
+  }
+
   let cue_content = $"
 #EnhancedBead: {
   id: \"($bead_id)\"
@@ -1691,54 +1813,34 @@ def expand-template [task_data: record, bead_id: string] {
 
   research_requirements: {
     files_to_read: [
-      ($research_files | each { |f| $'{path: \"($f)\", what_to_extract: \"Existing patterns\", document_in: \"research_notes.md\"}' } | str join ',
-      ')
+      ($research_files_cue)
     ]
     research_questions: [
-      ($research_questions | each { |q| $'{question: \"($q)\", answered: false}' } | str join ',
-      ')
+      ($research_questions_cue)
     ]
     research_complete_when: [
-      \"All files have been read and patterns documented\"
+      \"All research_requirements files have been read\"
     ]
   }
 
   inversions: {
-    usability_failures: [
-      {failure: \"User encounters unclear error\", prevention: \"Provide specific error messages\", test_for_it: \"test_error_messages_are_clear\"}
-    ]
+    usability_failures: ($inversions_cue)
   }
 
   acceptance_tests: {
-    happy_paths: [
-      ($happy_tests | each { |t| $'{name: \"test_happy_path\", given: \"Valid inputs\", when: \"User executes command\", then: [\"Exit code is 0\", \"Output is correct\"], real_input: \"command input\", expected_output: \"expected output\"}' } | str join ',
-      ')
-    ]
-    error_paths: [
-      ($error_tests | each { |t| $'{name: \"test_error_path\", given: \"Invalid inputs\", when: \"User executes command\", then: [\"Exit code is non-zero\", \"Error message is clear\"], real_input: \"invalid input\", expected_output: null, expected_error: \"error message\"}' } | str join ',
-      ')
-    ]
+    happy_paths: ($happy_cue)
+    error_paths: ($error_cue)
   }
 
   e2e_tests: {
-    pipeline_test: {
-      name: \"test_full_pipeline\"
-      description: \"End-to-end test of full workflow\"
-      setup: {}
-      execute: {
-        command: \"intent command\"
-      }
-      verify: {
-        exit_code: 0
-      }
-    }
+  ($e2e_cue)
   }
 
   verification_checkpoints: {
     gate_0_research: {
       name: \"Research Gate\"
       must_pass_before: \"Writing code\"
-      checks: [\"All research questions answered\"]
+      checks: [\"All research_requirements files have been read\"]
       evidence_required: [\"Research notes documented\"]
     }
     gate_1_tests: {
@@ -1795,14 +1897,12 @@ def expand-template [task_data: record, bead_id: string] {
   }
 
   failure_modes: {
-    failure_modes: [
-      {symptom: \"Feature does not work\", likely_cause: \"Implementation incomplete\", where_to_look: [{file: \"src/main.rs\", what_to_check: \"Implementation logic\"}], fix_pattern: \"Complete implementation\"}
-    ]
+  ($failure_cue)
   }
 
   anti_hallucination: {
     read_before_write: [
-      {file: \"src/main.rs\", must_read_first: true, key_sections_to_understand: [\"Main entry point\"]}
+      ($read_before_write_cue)
     ]
     apis_that_exist: []
     no_placeholder_values: [\"Use real data from codebase\"]
@@ -1821,17 +1921,17 @@ def expand-template [task_data: record, bead_id: string] {
 
   completion_checklist: {
     tests: [
-      \"[ ] All acceptance tests written and passing\",
-      \"[ ] All error path tests written and passing\",
-      \"[ ] E2E pipeline test passing with real data\",
-      \"[ ] No mocks or fake data in any test\"
+      \"Acceptance tests from this bead are implemented and passing\",
+      \"Error-path tests from this bead are implemented and passing\",
+      \"Pipeline verification exercises real project inputs for this task\",
+      \"No fake placeholders remain in test inputs or assertions\"
     ]
     code: [
-      \"[ ] Implementation uses Result<T, Error> throughout\",
-      \"[ ] Zero unwrap() or expect() calls\"
+      \"Implementation uses Result<T, Error> throughout where fallible\",
+      \"No unwrap() or expect() calls remain in production paths\"
     ]
     ci: [
-      \"[ ] moon run :ci passes\"
+      \"moon run :ci passes after the task changes\"
     ]
   }
 

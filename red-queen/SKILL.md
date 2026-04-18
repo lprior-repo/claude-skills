@@ -1,18 +1,6 @@
 ---
 name: red-queen
-description: "Adversarial evolutionary QA using the Digital Red Queen algorithm. Deterministic state machine (liza-advanced.nu) drives selection, regression, and gates. AI generates test commands only. Code and tests coevolve — each generation must defeat ALL previous generations. Use when you need aggressive QA, adversarial code review, CLI validation, regression hunting, or when the user says 'red queen', 'combative review', 'adversarial QA', 'stress test', or 'defend the throne'."
-allowed-tools:
-  - Read
-  - Write
-  - Edit
-  - Glob
-  - Grep
-  - Bash
-  - Task
-  - TodoWrite
-  - mcp__codanna__*
-user-invocable: true
-argument-hint: [target path, CLI binary, or scope]
+description: "Adversarial evolutionary QA using Digital Red Queen. Code and tests coevolve via deterministic state machine execution."
 ---
 
 # The Red Queen: Deterministic Adversarial Evolution

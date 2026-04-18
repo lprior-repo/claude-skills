@@ -1,16 +1,6 @@
 ---
 name: skill-writer
-description: Meta skill for authoring Claude skills using contract-first design, JSONL-first prompts, and progressive disclosure docs. Use when creating or improving SKILL.md files.
-argument-hint: [skill to create, refactor, or review]
-allowed-tools:
-  - Read
-  - Write
-  - Edit
-  - Glob
-  - Grep
-  - Bash
-user-invocable: true
-version: 2.0.0
+description: "Meta skill for authoring Claude skills using contract-first design, JSONL-first prompts, and progressive disclosure."
 ---
 
 ```jsonl

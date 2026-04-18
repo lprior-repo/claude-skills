@@ -1,10 +1,6 @@
 ---
 name: moon-v2
-description: "Moon v2 build system expert for Rust repositories. Use for Moon v2 setup, CI/CD pipelines, task design, caching, remote cache, and integration with Rust workflows. Covers moon ci, moon run, toolchains config, workspace config, 3-layer caching (sccache + bazel-remote + Cargo), and functional Rust patterns including clippy, nextest, and strict lint gates (zero tolerance for source code)."
-allowed-tools: ["bash"]
-version:1.2.0
-user-invocable: true
-argument-hint: [moon command, workflow question, or CI/CD setup]
+description: "Moon v2 build system expert for Rust. Covers CI/CD, task design, 3-layer caching, and functional Rust lint gates."
 ---
 
 ```jsonl

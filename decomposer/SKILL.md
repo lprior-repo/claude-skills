@@ -1,16 +1,6 @@
 ---
 name: decomposer
-description: Deterministic BEAM-style supervisor that shreds architecture specifications into molecular tasks. Uses a strict drafting -> adversarial review (plan-shredder) -> repair loop to enforce Bitter Truth constraints before handing off to the planner.
-allowed-tools:
-  - Bash
-  - Read
-  - Write
-  - Edit
-  - Task
-  - Glob
-  - Grep
-user-invocable: true
-argument-hint: [input-spec.md] [output-tasks.json]
+description: "Deterministic BEAM-style supervisor that shreds architecture specs into molecular tasks via plan-shredder loop."
 ---
 
 # Decomposer Orchestrator

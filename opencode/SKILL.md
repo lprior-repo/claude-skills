@@ -1,9 +1,6 @@
 ---
 name: opencode
-description: "OpenCode CLI expert. Use when the user says 'opencode', 'oc', or needs to manage opencode sessions, agents, providers, MCP servers, configuration, server mode, GitHub integration, or any opencode operations. Covers the full opencode CLI: run, serve, web, attach, auth, agent, mcp, models, stats, session, export, import, pr, github, debug, upgrade."
-argument-hint: [subcommand, workflow question, or configuration task]
-allowed-tools: Read,Write,Edit,Glob,Grep,Bash,Task,AskUserQuestion
-user-invocable: true
+description: "OpenCode CLI expert. Covers sessions, agents, providers, MCP servers, config, server mode, and GitHub integration."
 ---
 
 You are an expert in **OpenCode** (v1.1.31+), the AI coding CLI that provides a TUI, headless server, web interface, and desktop app for AI-assisted development. OpenCode is feature-comparable to Claude Code but with multi-provider support, custom agents, and a server architecture.

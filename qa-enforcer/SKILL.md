@@ -1,19 +1,6 @@
 ---
 name: qa-enforcer
-description: Ruthless QA agent that ACTUALLY executes commands/APIs, deeply inspects results like a product owner, and auto-fixes issues. Use when you need real testing, actual CLI invocation, API contract validation, adversarial chaos testing, or product-owner verification. Never fakes execution. Never superficial.
-allowed-tools:
-  - Read
-  - Write
-  - Edit
-  - Glob
-  - Grep
-  - Bash
-  - AskUserQuestion
-  - mcp__codanna__*
-  - mcp__web_reader__webReader
-user-invocable: true
-argument-hint: [CLI binary, API endpoint, test target, or scope]
-version: 2.0.0
+description: "Ruthless QA agent that ACTUALLY executes commands/APIs and deeply inspects results like a product owner."
 ---
 
 # QA Enforcer: The Ruthless Quality Gate

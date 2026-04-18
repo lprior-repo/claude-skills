@@ -1,16 +1,6 @@
 ---
 name: scott-ddd-refactor
-description: Strict Scott Wlaschin style refactoring for DDD and type-driven design. Use when transforming codebases to make illegal states unrepresentable, parse at boundaries, and model workflows as explicit type transitions.
-argument-hint: [feature, module, file, or refactor scope]
-allowed-tools:
-  - Read
-  - Write
-  - Edit
-  - Glob
-  - Grep
-  - Bash
-user-invocable: true
-version: 1.0.0
+description: "Strict Scott Wlaschin style refactoring for DDD and type-driven design. Makes illegal states unrepresentable."
 ---
 
 ```jsonl

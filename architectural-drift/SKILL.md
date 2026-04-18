@@ -1,7 +1,6 @@
 ---
 name: architectural-drift
-description: Runbook for checking architectural drift, enforcing <300 line files, and applying Scott Wlaschin DDD principles.
-allowed-tools: ["bash", "read", "write", "edit", "glob", "grep"]
+description: "Runbook for checking architectural drift, enforcing <300 line files, and applying Scott Wlaschin DDD principles."
 ---
 
 # Architectural Drift Protocol

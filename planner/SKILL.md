@@ -1,18 +1,6 @@
 ---
 name: planner
-description: "Deterministic planning agent that decomposes complex work into atomic beads using the enhanced 16-section template. Validates each bead against CUE schema. Uses state machine approach with clear phases. AI breaks down requirements, the script creates validated beads. Use when you need to plan work, decompose features, create project structure, or when the user says 'plan', 'break down', 'create beads', or 'decompose'."
-allowed-tools:
-  - Read
-  - Write
-  - Edit
-  - Glob
-  - Grep
-  - Bash
-  - Task
-  - TodoWrite
-  - mcp__codanna__*
-user-invocable: true
-argument-hint: [description of work to plan]
+description: "Deterministic planning agent that decomposes complex work into atomic beads using enhanced 16-section template."
 ---
 
 # Planner: Deterministic Bead Decomposition Agent

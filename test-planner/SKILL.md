@@ -1,25 +1,6 @@
 ---
 name: test-planner
-description: |
-  Exhaustive Rust test strategist. Reads code or a bead/contract-spec and produces a
-  categorized test-plan.md covering: Testing Trophy allocation (unit/integration/e2e ratios),
-  behavior inventory from public APIs, BDD Given-When-Then scenarios (Dan North), proptest
-  property invariants, cargo-fuzz targets, Kani formal verification harnesses, cargo-mutants
-  checkpoints, and integration test scenarios. Output is consumed by the test-writer skill.
-
-  Use when planning tests for ANY Rust code, bead, feature, or module — BEFORE implementation
-  or alongside it. Triggers on: "plan tests", "test strategy", "test coverage", "what tests
-  do I need", "test plan", "trophy allocation", or any new Rust feature being designed.
-  Also trigger when a bead has a contract-spec.md but no test-plan.md yet.
-allowed-tools:
-  - Read
-  - Write
-  - Edit
-  - Glob
-  - Grep
-user-invocable: true
-argument-hint: "[bead id, file path, or feature description]"
-version: 1.0.0
+description: "Exhaustive Rust test strategist. Reads code/bead and produces test-plan.md covering unit, BDD, proptest, and mutations."
 ---
 
 # Test Planner — The Strategist

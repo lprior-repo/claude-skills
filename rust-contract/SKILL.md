@@ -1,15 +1,6 @@
 ---
 name: rust-contract
-description: Design-by-contract and Martin Fowler test planning for Rust. Produces contracts, invariants, and Given-When-Then test plans. No implementation.
-allowed-tools:
-  - Read
-  - Write
-  - Edit
-  - Glob
-  - Grep
-user-invocable: true
-argument-hint: [bead id or feature description]
-version: 1.0.0
+description: "Design-by-contract and Martin Fowler test planning for Rust. Produces contracts, invariants, and Given-When-Then plans."
 ---
 
 # Rust Contract (Design by Contract + Martin Fowler Tests)

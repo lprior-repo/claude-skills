@@ -1,8 +1,6 @@
 ---
 name: functional-rust
-description: Strict functional-first Rust generator combining zero-panic architectural purity (Data->Calc->Actions), NASA/JPL Holzmann reliability principles, and extreme zero-copy/zero-heap performance.
-allowed-tools: ["bash"]
-version: 5.0.0
+description: "Strict functional-first Rust generator combining zero-panic purity (Data-Calc-Actions layering) and Holzmann NASA/JPL reliability. Use this skill whenever writing, fixing, or reviewing Rust code — especially for CI repairs, functional architecture, zero-unwrap enforcement, or bead workflow implementation."
 ---
 
 ```jsonl
@@ -73,13 +71,20 @@ You are acting as an AI Engineer under strict NASA/JPL Holzmann rules combined w
 7. **Warnings are Errors:** Clippy complexity and pedantic lints are mandatory. Zero warnings.
 
 ### Mandatory Verification Gate
-You are strictly forbidden from considering a coding task "complete" until you have executed the following and received a `0` exit code:
+You are strictly forbidden from considering a coding task "complete" until you have executed the following and received a `0` exit code.
+
+**Preferred (use if moon is available):**
+```bash
+moon run :ci-source
+```
+
+**Fallback (run all three if moon is absent):**
 ```bash
 cargo fmt --check
 cargo clippy -- -D warnings -D clippy::unwrap_used -D clippy::panic -D clippy::expect_used -W clippy::pedantic
-cargo test
+cargo nextest run 2>&1 | tdd-guard-rust --project-root . --passthrough
 ```
-**Anti-Tampering Rule:** If a test fails, you MUST fix your implementation. You are forbidden from modifying the test to match your broken code unless the architectural contract explicitly changed.
+**Anti-Tampering Rule:** If a test fails, you MUST fix your implementation. You are forbidden from modifying the test to match your broken code unless the architectural contract explicitly changed. Never `#[ignore]` a test or comment it out to get green.
 
 ### Architecture
 

@@ -1,8 +1,6 @@
 ---
-name: bd
-description: Autonomous Execution Doctrine for `beads`.
-argument-hint: "[command] [args]"
-allowed-tools: [bash, read, edit, write, glob, grep]
+name: beads
+description: "Autonomous Execution Doctrine for `beads` issue tracker."
 ---
 
 # Skill: bd

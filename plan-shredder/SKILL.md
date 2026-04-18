@@ -1,7 +1,6 @@
 ---
 name: plan-shredder
-description: Ultimate planning gatekeeper. Viciously attacks task decomposition plans using Munger's Lattices, Bitter Truth constraints, and strict Planner CUE Schema compliance.
-allowed-tools: ["read", "grep", "glob"]
+description: "Ultimate planning gatekeeper. Viciously attacks task decomposition plans using Munger's Lattices and Bitter Truth constraints."
 ---
 
 ```jsonl
